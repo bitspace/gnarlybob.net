@@ -1,0 +1,101 @@
+---
+import Layout from "../layouts/Layout.astro";
+---
+
+<Layout title="Welcome">
+  <main>
+    <section class="hero">
+      <h1>Summer 2026</h1>
+      <p>Travel Pitch Decks & Logistics</p>
+    </section>
+
+    <section class="pitch-decks">
+      <div class="deck-grid">
+        <a href="#" class="deck-card glass-panel">
+          <h3>Candidate 1</h3>
+          <p>Exploration and Discovery</p>
+        </a>
+        <a href="#" class="deck-card glass-panel">
+          <h3>Candidate 2</h3>
+          <p>Urban Adventure & Culture</p>
+        </a>
+        <a href="#" class="deck-card glass-panel">
+          <h3>Candidate 3</h3>
+          <p>Relaxation & Coastal Escapes</p>
+        </a>
+      </div>
+    </section>
+  </main>
+</Layout>
+
+<style>
+  main {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+  }
+
+  .hero {
+    text-align: center;
+    margin-bottom: 6rem;
+    animation: fadeIn 1s ease-out;
+  }
+
+  h1 {
+    font-size: clamp(3rem, 10vw, 8rem);
+    line-height: 1;
+    margin-bottom: 1rem;
+    background: linear-gradient(
+      to bottom,
+      var(--color-primary),
+      var(--color-secondary)
+    );
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  .hero p {
+    font-size: 1.5rem;
+    opacity: 0.8;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+  }
+
+  .deck-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  .deck-card {
+    padding: 3rem;
+    text-align: center;
+    transition: var(--transition-smooth);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 300px;
+  }
+
+  .deck-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    border-color: var(--color-primary);
+  }
+
+  .deck-card h3 {
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+</style>
