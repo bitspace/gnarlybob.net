@@ -29,10 +29,8 @@ jobs:
         uses: easingthemes/ssh-deploy@v5.0.0
         with:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
-          ARGS: "-rlgoDzvc -i --delete"
+          ARGS: "-rlgoDzvc --delete"
           SOURCE: "dist/"
           REMOTE_HOST: ${{ secrets.VPS_HOST }}
           REMOTE_USER: ${{ secrets.VPS_USER }}
           TARGET: "/var/www/gnarlybob.net/travel/"
-          SCRIPT_BEFORE: |
-            mkdir -p /var/www/gnarlybob.net/travel
