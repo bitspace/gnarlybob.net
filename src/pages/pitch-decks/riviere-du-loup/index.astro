@@ -2,8 +2,7 @@
 import PitchDeck from "../../../layouts/PitchDeck.astro";
 const baseUrl = import.meta.env.BASE_URL;
 
-const heroImage =
-  "https://commons.wikimedia.org/wiki/Special:FilePath/Parc_des_Chutes_in_Rivi%C3%A8re-du-loup.jpg";
+const heroImage = `${baseUrl}/slide-images/riviere-du-loup/slide1.jpg`;
 
 const slides = [
   {
@@ -18,7 +17,7 @@ const slides = [
       "Waterfalls + walkability",
       "Easy pacing: many small wins per day",
     ],
-    image: heroImage,
+    image: `${baseUrl}/slide-images/riviere-du-loup/slide2.jpg`,
     imageAlt: "Parc des Chutes waterfall in Rivière-du-Loup",
     caption: `Image: Wikimedia Commons (Parc des Chutes in Rivière-du-Loup).`,
   },
@@ -35,8 +34,7 @@ const slides = [
       "Strong for casual dining + decompress time",
     ],
     note: "Real talk: the most relaxing version of this trip is not over-planning the week.",
-    image:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Parc-des-Chutes.jpg",
+    image: `${baseUrl}/slide-images/riviere-du-loup/slide3.jpg`,
     imageAlt: "Chutes sur la rivière du Loup",
     caption: `Image: Wikimedia Commons (Parc-des-Chutes).`,
   },
@@ -51,7 +49,7 @@ const slides = [
       "Arrival day stays enjoyable",
       "Better for mobility comfort and stress",
     ],
-    image: `${baseUrl}/maps/hooksett-to-riviere-du-loup-map.png`,
+    image: `${baseUrl}/slide-images/riviere-du-loup/slide4.png`,
     imageAlt: "Driving route from Hooksett NH to Rivière-du-Loup QC",
     caption: `Your route screenshot (local asset).`,
   },
@@ -66,7 +64,7 @@ const slides = [
       "Good benches / pauses (important!)",
       "Easy to revisit for better light",
     ],
-    image: heroImage,
+    image: `${baseUrl}/slide-images/riviere-du-loup/slide5.jpg`,
     imageAlt: "Parc des Chutes waterfall",
     caption: `Image: Wikimedia Commons (Parc des Chutes in Rivière-du-Loup).`,
   },
@@ -83,26 +81,9 @@ const slides = [
       "A neat day-trip option without crowds",
     ],
     note: "Real talk: show up early in peak season and treat it like a real timed event, not a casual “we’ll wing it.”",
-    image:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Rivi%C3%A8re-du-Loup%E2%80%93Saint-Sim%C3%A9on_Ferry_(MV_Trans-Saint-Laurent)_at_dock.jpg",
+    image: `${baseUrl}/slide-images/riviere-du-loup/slide6.jpg`,
     imageAlt: "Ferry on the St. Lawrence",
     caption: `Image: If this specific file URL 404s, swap to an official ferry photo source or choose another Wikimedia ferry image.`,
-  },
-  {
-    kicker: "Fallback image (Wikimedia-safe)",
-    title: "If you want a guaranteed ferry visual",
-    body: `
-      <p>Wikimedia has multiple ferry photos, but filenames vary. If the previous slide’s image doesn’t resolve, use this stable alternative from Québec maritime for now, then replace with a Wikimedia file you like later.</p>
-    `,
-    bullets: [
-      "Quick to swap",
-      "Keeps the deck visually strong",
-      "You can harden licensing later if you prefer",
-    ],
-    image:
-      "https://www.quebecmaritime.ca/wp-content/uploads/2015/10/traverse-riviere-du-loup-1.jpg",
-    imageAlt: "Ferry on the St. Lawrence (Québec maritime)",
-    caption: `Image: Québec maritime (Rivière-du-Loup–Saint-Siméon ferry).`,
   },
   {
     kicker: "Home base",
@@ -116,8 +97,7 @@ const slides = [
       "Fitness room becomes realistic, not aspirational",
     ],
     note: "Real talk: prioritize comfortable seating in-room and common spaces. It matters more than you think on day 4.",
-    image:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Parc_des_chutes.jpg",
+    image: `${baseUrl}/slide-images/riviere-du-loup/slide7.jpg`,
     imageAlt: "Aerial view of Parc des Chutes and dam",
     caption: `Image: Wikimedia Commons (Parc des chutes).`,
   },
@@ -132,8 +112,7 @@ const slides = [
       "Avoids bottlenecks and parking stress",
       "Better for mobility comfort and anxiety",
     ],
-    image:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Parc_des_Chutes_in_Rivi%C3%A8re-du-loup.jpg",
+    image: `${baseUrl}/slide-images/riviere-du-loup/slide8.jpg`,
     imageAlt: "Waterfall park view",
     caption: `Image: Wikimedia Commons (Parc des Chutes in Rivière-du-Loup).`,
   },
@@ -150,8 +129,7 @@ const slides = [
       "Strong pacing control",
     ],
     note: "Call to action: shortlist this if you want the most relaxed week of the three options.",
-    image:
-      "https://commons.wikimedia.org/wiki/Special:FilePath/Parc_des_Chutes_in_Rivi%C3%A8re-du-loup.jpg",
+    image: `${baseUrl}/slide-images/riviere-du-loup/slide9.jpg`,
     imageAlt: "Parc des Chutes waterfall park",
     caption: `Image: Wikimedia Commons (Parc des Chutes).`,
   },
