@@ -155,70 +155,76 @@ const deckId = `deck-${Math.random().toString(16).slice(2)}`;
     </div>
   </footer>
 
-  <script is:inline>
-    {
-      `
-    (function(){
-      const root = document.getElementById(${JSON.stringify(deckId)});
+  <script is:inline define:vars={{ deckId }}>
+    (function () {
+      const root = document.getElementById(deckId);
       if (!root) return;
 
-      const slides = Array.from(root.querySelectorAll('[data-pd-slide]'));
+      const slides = Array.from(root.querySelectorAll("[data-pd-slide]"));
       const btnPrev = root.querySelector('[data-pd="prev"]');
       const btnNext = root.querySelector('[data-pd="next"]');
-      const dots = Array.from(root.querySelectorAll('[data-pd-dot]'));
+      const dots = Array.from(root.querySelectorAll("[data-pd-dot]"));
       const elCurrent = root.querySelector('[data-pd="current"]');
       const elTotal = root.querySelector('[data-pd="total"]');
 
       let idx = 0;
       const max = slides.length - 1;
 
-      function render(){
-        slides.forEach((s, i) => { s.hidden = i !== idx; });
+      function render() {
+        slides.forEach((s, i) => {
+          s.hidden = i !== idx;
+        });
         if (elCurrent) elCurrent.textContent = String(idx + 1);
         if (elTotal) elTotal.textContent = String(slides.length);
 
         dots.forEach((d, i) => {
-          d.setAttribute('aria-current', i === idx ? 'true' : 'false');
-          d.classList.toggle('is-active', i === idx);
+          d.setAttribute("aria-current", i === idx ? "true" : "false");
+          d.classList.toggle("is-active", i === idx);
         });
 
         if (btnPrev) btnPrev.disabled = idx === 0;
         if (btnNext) btnNext.disabled = idx === max;
 
         // update hash so refresh keeps place
-        try { history.replaceState(null, '', '#' + (idx + 1)); } catch(e) {}
+        try {
+          history.replaceState(null, "", "#" + (idx + 1));
+        } catch (e) {}
       }
 
-      function go(n){
+      function go(n) {
         idx = Math.max(0, Math.min(max, n));
         render();
       }
 
-      function next(){ go(idx + 1); }
-      function prev(){ go(idx - 1); }
+      function next() {
+        go(idx + 1);
+      }
+      function prev() {
+        go(idx - 1);
+      }
 
-      btnNext && btnNext.addEventListener('click', next);
-      btnPrev && btnPrev.addEventListener('click', prev);
+      btnNext && btnNext.addEventListener("click", next);
+      btnPrev && btnPrev.addEventListener("click", prev);
 
       dots.forEach((d) => {
-        d.addEventListener('click', () => go(Number(d.getAttribute('data-pd-dot') || '0')));
+        d.addEventListener("click", () =>
+          go(Number(d.getAttribute("data-pd-dot") || "0"))
+        );
       });
 
-      window.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowRight') next();
-        if (e.key === 'ArrowLeft') prev();
-        if (e.key === 'Home') go(0);
-        if (e.key === 'End') go(max);
+      window.addEventListener("keydown", (e) => {
+        if (e.key === "ArrowRight") next();
+        if (e.key === "ArrowLeft") prev();
+        if (e.key === "Home") go(0);
+        if (e.key === "End") go(max);
       });
 
       // load initial from hash, if present
-      const h = (location.hash || '').replace('#','');
+      const h = (location.hash || "").replace("#", "");
       const n = parseInt(h, 10);
       if (!Number.isNaN(n) && n >= 1 && n <= slides.length) idx = n - 1;
 
       render();
     })();
-    `;
-    }
   </script>
 </div>
