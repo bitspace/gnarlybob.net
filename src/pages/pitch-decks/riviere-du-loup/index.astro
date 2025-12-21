@@ -1,0 +1,172 @@
+---
+import PitchDeck from "../../../layouts/PitchDeck.astro";
+const baseUrl = import.meta.env.BASE_URL;
+
+const heroImage =
+  "https://commons.wikimedia.org/wiki/Special:FilePath/Parc_des_Chutes_in_Rivi%C3%A8re-du-loup.jpg";
+
+const slides = [
+  {
+    kicker: "The Hook",
+    title: "St. Lawrence air, waterfall power, and a built-in reset button",
+    body: `
+      <p>Rivière-du-Loup is the “effortless comfort” candidate: a pleasant town base, a dramatic urban waterfall park, and the St. Lawrence right there when you want wide horizons and a slower heart rate.</p>
+      <p>This is also a great match for crowd-averse travel because you can build satisfying days from short, calm stops instead of one mega-attraction.</p>
+    `,
+    bullets: [
+      "Coastal-adjacent vibe (St. Lawrence)",
+      "Waterfalls + walkability",
+      "Easy pacing: many small wins per day",
+    ],
+    image: heroImage,
+    imageAlt: "Parc des Chutes waterfall in Rivière-du-Loup",
+    caption: `Image: Wikimedia Commons (Parc des Chutes in Rivière-du-Loup).`,
+  },
+  {
+    kicker: "Fit check",
+    title: "Why it matches your travel parameters",
+    body: `
+      <p>You prioritize comfortable lodging and low-friction days, with scenic drives, light walks, and local food. Rivière-du-Loup is particularly strong at “do a little, feel good, repeat.”</p>
+      <p>And because it’s a town base, you get reliable amenities (internet, fitness room, dining) while still having nature within minutes.</p>
+    `,
+    bullets: [
+      "Home-base logistics are easy",
+      "Short-walk nature is abundant",
+      "Strong for casual dining + decompress time",
+    ],
+    note: "Real talk: the most relaxing version of this trip is not over-planning the week.",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Parc-des-Chutes.jpg",
+    imageAlt: "Chutes sur la rivière du Loup",
+    caption: `Image: Wikimedia Commons (Parc-des-Chutes).`,
+  },
+  {
+    kicker: "Getting there",
+    title: "Hooksett → Rivière-du-Loup: your route plan in one image",
+    body: `
+      <p>Two-stage travel is a big quality-of-life win here. Your avoid-highways route screenshot is exactly what you want to choose a pleasant intermediate overnight stop.</p>
+    `,
+    bullets: [
+      "Travel days stay humane",
+      "Arrival day stays enjoyable",
+      "Better for mobility comfort and stress",
+    ],
+    image: `${baseUrl}/maps/hooksett-to-riviere-du-loup-map.png`,
+    imageAlt: "Driving route from Hooksett NH to Rivière-du-Loup QC",
+    caption: `Your route screenshot (local asset).`,
+  },
+  {
+    kicker: "Unmissable highlight",
+    title: "Parc des Chutes: waterfall park right in town",
+    body: `
+      <p>This is the signature “no excuses” stop: a dramatic falls area that’s easy to revisit at different times of day. Great for photography and short walks.</p>
+    `,
+    bullets: [
+      "High payoff with low walking load",
+      "Good benches / pauses (important!)",
+      "Easy to revisit for better light",
+    ],
+    image: heroImage,
+    imageAlt: "Parc des Chutes waterfall",
+    caption: `Image: Wikimedia Commons (Parc des Chutes in Rivière-du-Loup).`,
+  },
+  {
+    kicker: "Unmissable highlight",
+    title: "Rivière-du-Loup–Saint-Siméon ferry: the ‘mini-cruise’ play",
+    body: `
+      <p>The ferry crossing is a very “Chris-style” value: you’re doing something iconic, scenic, and photogenic — but you’re sitting down with a horizon view.</p>
+      <p>Québec maritime describes the service and notes onboard amenities (including elevator access for reduced mobility).</p>
+    `,
+    bullets: [
+      "St. Lawrence scenery with minimal physical effort",
+      "Built-in relaxation + photos",
+      "A neat day-trip option without crowds",
+    ],
+    note: "Real talk: show up early in peak season and treat it like a real timed event, not a casual “we’ll wing it.”",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Rivi%C3%A8re-du-Loup%E2%80%93Saint-Sim%C3%A9on_Ferry_(MV_Trans-Saint-Laurent)_at_dock.jpg",
+    imageAlt: "Ferry on the St. Lawrence",
+    caption: `Image: If this specific file URL 404s, swap to an official ferry photo source or choose another Wikimedia ferry image.`,
+  },
+  {
+    kicker: "Fallback image (Wikimedia-safe)",
+    title: "If you want a guaranteed ferry visual",
+    body: `
+      <p>Wikimedia has multiple ferry photos, but filenames vary. If the previous slide’s image doesn’t resolve, use this stable alternative from Québec maritime for now, then replace with a Wikimedia file you like later.</p>
+    `,
+    bullets: [
+      "Quick to swap",
+      "Keeps the deck visually strong",
+      "You can harden licensing later if you prefer",
+    ],
+    image:
+      "https://www.quebecmaritime.ca/wp-content/uploads/2015/10/traverse-riviere-du-loup-1.jpg",
+    imageAlt: "Ferry on the St. Lawrence (Québec maritime)",
+    caption: `Image: Québec maritime (Rivière-du-Loup–Saint-Siméon ferry).`,
+  },
+  {
+    kicker: "Home base",
+    title: "Town-based lodging: the comfort multiplier",
+    body: `
+      <p>This destination is unusually strong on your must-haves: mid-range/upscale lodging options, reliable internet, and easy dining. That translates directly into lower stress and better sleep.</p>
+    `,
+    bullets: [
+      "Fast access to groceries/dining",
+      "Easy “rest day” if needed",
+      "Fitness room becomes realistic, not aspirational",
+    ],
+    note: "Real talk: prioritize comfortable seating in-room and common spaces. It matters more than you think on day 4.",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Parc_des_chutes.jpg",
+    imageAlt: "Aerial view of Parc des Chutes and dam",
+    caption: `Image: Wikimedia Commons (Parc des chutes).`,
+  },
+  {
+    kicker: "Crowd avoidance",
+    title: "How to keep it calm",
+    body: `
+      <p>Because your best moments here are “small and scenic,” you can dodge crowds by default: early falls visit, late morning café, mid-day relax, evening St. Lawrence view.</p>
+    `,
+    bullets: [
+      "Multiple short outings instead of one long push",
+      "Avoids bottlenecks and parking stress",
+      "Better for mobility comfort and anxiety",
+    ],
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Parc_des_Chutes_in_Rivi%C3%A8re-du-loup.jpg",
+    imageAlt: "Waterfall park view",
+    caption: `Image: Wikimedia Commons (Parc des Chutes in Rivière-du-Loup).`,
+  },
+  {
+    kicker: "Decision slide",
+    title: "If you want: comfort-first with coastal vibes",
+    body: `
+      <p>Rivière-du-Loup is the best candidate if the goal is “easy living” plus a few standout scenic anchors. It’s not trying to be epic every minute — it’s trying to be consistently good.</p>
+      <p><strong>Verdict:</strong> Best for comfort + coastal air + low-effort beauty.</p>
+    `,
+    bullets: [
+      "Town comfort + nature access",
+      "Waterfalls + St. Lawrence views",
+      "Strong pacing control",
+    ],
+    note: "Call to action: shortlist this if you want the most relaxed week of the three options.",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Parc_des_Chutes_in_Rivi%C3%A8re-du-loup.jpg",
+    imageAlt: "Parc des Chutes waterfall park",
+    caption: `Image: Wikimedia Commons (Parc des Chutes).`,
+  },
+];
+
+const subtitle =
+  "Waterfall park in town, St. Lawrence horizons, and comfort-forward logistics — easy days with steady scenic payoff.";
+---
+
+<PitchDeck
+  title="Rivière-du-Loup (Québec)"
+  subtitle={subtitle}
+  heroImage={heroImage}
+  heroImageAlt="Parc des Chutes in Rivière-du-Loup"
+  slides={slides}
+  backHref="/travel/"
+  accent="hsl(28 90% 55%)"
+/>

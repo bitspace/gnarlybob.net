@@ -1,0 +1,188 @@
+---
+import PitchDeck from "../../../layouts/PitchDeck.astro";
+const baseUrl = import.meta.env.BASE_URL;
+
+const heroImage =
+  "https://commons.wikimedia.org/wiki/Special:FilePath/Saguenay_Fjord.jpg";
+
+const slides = [
+  {
+    kicker: "The Hook",
+    title: "A fjord in summer: cliffs, water, and wide-open air",
+    body: `
+      <p>Saguenay–Lac-Saint-Jean is the “scale upgrade” destination: big landforms, deep water, and those long-view landscapes that photograph like a drone shot even when you’re standing on a trail lookout.</p>
+      <p>It’s also naturally good for crowd-avoidance because activities spread across a whole region, not one single hotspot.</p>
+    `,
+    bullets: [
+      "Fjord vistas + forested cliffs",
+      "Multiple day-trip targets = flexible pacing",
+      "Great photo variety: water, rock, wildlife, villages",
+    ],
+    image: heroImage,
+    imageAlt: "Saguenay Fjord view from a trail",
+    caption: `Image: Wikimedia Commons (Saguenay Fjord).`,
+  },
+  {
+    kicker: "Fit check",
+    title: "Why it matches your travel style",
+    body: `
+      <p>You prefer scenic drives and light walks with strong “reward-to-effort.” This region is built for that: fjord lookouts, accessible sector trailheads, and “do one big view, then go eat something good” days.</p>
+      <p>It also respects your home-base preference: one comfortable hotel, then day trips to fjord sectors and Lac-Saint-Jean highlights.</p>
+    `,
+    bullets: [
+      "Crowd-avoidant via geographic spread",
+      "Excellent scenic-drive ROI",
+      "Plenty of short-to-moderate walking options",
+    ],
+    note: "Real talk: distances between highlights can be real. The win is planning 1–2 anchor stops per day.",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/SaguenayFjord.JPG",
+    imageAlt: "Saguenay fjord landscape",
+    caption: `Image: Wikimedia Commons (SaguenayFjord).`,
+  },
+  {
+    kicker: "Getting there",
+    title: "Hooksett → Chicoutimi (and why the route matters)",
+    body: `
+      <p>Two-stage outbound/inbound keeps the vacation feeling like a vacation (and not like a stamina test).</p>
+      <p>Your avoid-highways route screenshot is exactly the planning artifact you want: it helps pick a pleasant overnight and avoids “arrival day burnout.”</p>
+    `,
+    bullets: [
+      "Intermediate night reduces fatigue",
+      "Arrival day stays calm and flexible",
+      "Better for mobility comfort and stress management",
+    ],
+    image: `${baseUrl}/maps/hooksett-to-saguenay-lac-saint-jean-map.png`,
+    imageAlt: "Driving route from Hooksett NH to Chicoutimi QC",
+    caption: `Your route screenshot (local asset).`,
+  },
+  {
+    kicker: "Unmissable highlight",
+    title: "Parc national du Fjord-du-Saguenay: fjord sectors + wildlife",
+    body: `
+      <p>The fjord park is the centerpiece. In the Baie-Éternité sector, Sépaq specifically calls out trails that combine water views and forest, and notes wildlife watching (including moose sightings early in the morning).</p>
+    `,
+    bullets: [
+      "Cliffs + water views without epic-distance hiking",
+      "Morning wildlife advantage",
+      "Multiple sectors = choose your intensity",
+    ],
+    note: "Real talk: this is a “start early” destination. Same reason as photography: better light, fewer people, more wildlife.",
+    image: heroImage,
+    imageAlt: "Saguenay fjord view",
+    caption: `Image: Wikimedia Commons (Saguenay Fjord).`,
+  },
+  {
+    kicker: "Unmissable highlight",
+    title: "Village historique de Val-Jalbert: culture + scenery in one stop",
+    body: `
+      <p>When you want a museum-ish day that still feels outdoorsy, Val-Jalbert is a great candidate: heritage, structures, and atmosphere — without the “big-city museum” crowd dynamics.</p>
+    `,
+    bullets: [
+      "Local history and heritage",
+      "Photogenic architecture",
+      "Good low-intensity day option",
+    ],
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Village_historique_de_Val_Jalbert_4.JPG",
+    imageAlt: "Village historique de Val-Jalbert",
+    caption: `Image: Wikimedia Commons (Val-Jalbert).`,
+  },
+  {
+    kicker: "Unmissable highlight",
+    title: "Parc national de la Pointe-Taillon: beachy lake energy",
+    body: `
+      <p>Yes, this is inland — but Lac Saint-Jean can deliver a “coastal-ish” vibe with beaches and open horizons. Pointe-Taillon is a strong match if you want water views with minimal walking stress.</p>
+    `,
+    bullets: [
+      "Beach + lake horizon (relaxation mode)",
+      "Easy photo wins: sky + water + texture",
+      "Great “active rest” day choice",
+    ],
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Pointe-Taillon-Embouchure_de_la_rivi%C3%A8re_Taillon_et_plage_en_2022.jpg",
+    imageAlt: "Natural beach at Pointe-Taillon on Lac Saint-Jean",
+    caption: `Image: Wikimedia Commons (Pointe-Taillon beach).`,
+  },
+  {
+    kicker: "Wildcard (optional)",
+    title: "Zoo sauvage de Saint-Félicien: boreal wildlife without hiking",
+    body: `
+      <p>If you want wildlife with minimal physical load, the Saint-Félicien zoo is a strong “comfort day” option. It’s also a nice break if weather turns wet.</p>
+    `,
+    bullets: [
+      "Wildlife focus without back/foot punishment",
+      "Good rainy-day substitute",
+      "Easy win for photography",
+    ],
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Lynx_rufus_-_Zoo_Sauvage_de_Saint-F%C3%A9licien_-_2016-07-19.jpg",
+    imageAlt: "Bobcat at the Zoo Sauvage de Saint-Félicien",
+    caption: `Image: Wikimedia Commons (Zoo Sauvage de Saint-Félicien).`,
+  },
+  {
+    kicker: "Home base",
+    title: "Chicoutimi area: services, dining, and day-trip access",
+    body: `
+      <p>Your lodging priorities (comfortable seating/sleeping, strong internet, fitness center) matter every day of the trip — not just at night.</p>
+      <p>Chicoutimi works as a central base to reach fjord sectors and Lac-Saint-Jean highlights.</p>
+    `,
+    bullets: [
+      "Reliable services and dining options",
+      "Better recovery between excursions",
+      "Supports the 5-night home-base strategy",
+    ],
+    note: "Real talk: confirm parking and A/C (some properties in older buildings can vary).",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/2016-09_Pointe_Taillon_13.jpg",
+    imageAlt: "Beach scene at Pointe-Taillon",
+    caption: `Image: Wikimedia Commons (Pointe-Taillon beach scene).`,
+  },
+  {
+    kicker: "Crowd avoidance",
+    title: "How to do Saguenay without the stress",
+    body: `
+      <p>Because the region offers many “must-see” options, you can avoid funneling into one place at one time. Build days around a single anchor + one optional bonus stop.</p>
+    `,
+    bullets: [
+      "Start early for fjord vistas and calmer trailheads",
+      "Avoid midday peak at the most popular parking areas",
+      "Use lake/beach time as a decompression tool",
+    ],
+    image: heroImage,
+    imageAlt: "Saguenay fjord landscape",
+    caption: `Image: Wikimedia Commons (Saguenay Fjord).`,
+  },
+  {
+    kicker: "Decision slide",
+    title: "If you want: big views + regional variety",
+    body: `
+      <p>Saguenay–Lac-Saint-Jean is the best candidate if you want a destination that feels “larger than a single park.” It’s the choice for variety: fjord cliffs, lake beaches, heritage sites, wildlife options.</p>
+      <p><strong>Verdict:</strong> Best “scenery-per-mile-driven” of the three candidates.</p>
+    `,
+    bullets: [
+      "Regional variety keeps the week fresh",
+      "High-value scenic drives",
+      "Lots of pacing control (good for comfort + anxiety)",
+    ],
+    note: "Call to action: shortlist this if you want the trip to feel epic without being strenuous.",
+    image:
+      "https://commons.wikimedia.org/wiki/Special:FilePath/Pointe-Taillon-Embouchure_de_la_rivi%C3%A8re_Taillon_et_plage_en_2022.jpg",
+    imageAlt: "Pointe-Taillon beach",
+    caption: `Image: Wikimedia Commons (Pointe-Taillon).`,
+  },
+];
+
+const subtitle =
+  "Fjord-scale scenery plus Lac-Saint-Jean beach days — a choose-your-own-adventure week with strong pacing control.";
+---
+
+<PitchDeck
+  title="Saguenay–Lac-Saint-Jean (Québec)"
+  subtitle={subtitle}
+  heroImage={heroImage}
+  heroImageAlt="Saguenay Fjord view"
+  slides={slides}
+  backHref="/travel/"
+  accent="hsl(205 85% 52%)"
+/>
