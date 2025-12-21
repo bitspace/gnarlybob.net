@@ -1,6 +1,12 @@
 ---
+import Layout from "./Layout.astro";
 import "../styles/pitch-deck.css";
 
+/**
+ * PitchDeck.astro
+ * - Vanilla HTML/CSS + a small inline script for slide navigation
+ * - No framework hydration needed
+ */
 const {
   title,
   subtitle,
@@ -15,216 +21,219 @@ const safeSlides = Array.isArray(slides) ? slides.slice(0, 12) : [];
 const deckId = `deck-${Math.random().toString(16).slice(2)}`;
 ---
 
-<div class="pd" id={deckId} style={`--pd-accent:${accent};`}>
-  <header class="pd__topbar">
-    <a class="pd__back" href={backHref} aria-label="Back to Travel">← Back</a>
-    <div class="pd__topmeta">
-      <div class="pd__title">{title}</div>
-      {subtitle ? <div class="pd__subtitle">{subtitle}</div> : null}
-    </div>
-    <div class="pd__controls" aria-label="Deck controls">
-      <button
-        class="pd__btn"
-        data-pd="prev"
-        type="button"
-        aria-label="Previous slide">‹</button
-      >
-      <button
-        class="pd__btn"
-        data-pd="next"
-        type="button"
-        aria-label="Next slide">›</button
-      >
-    </div>
-  </header>
-
-  <main class="pd__stage" aria-live="polite">
-    <!-- Slide 0: Hero -->
-    <section class="pd__slide" data-pd-slide="0" aria-label="Slide 1">
-      <div class="pd__hero">
-        <div class="pd__heroCopy">
-          <div class="pd__kicker">Pitch Deck</div>
-          <h1 class="pd__h1">{title}</h1>
-          {subtitle ? <p class="pd__lede">{subtitle}</p> : null}
-          <div class="pd__heroChips" role="list" aria-label="Quick filters">
-            <span class="pd__chip" role="listitem">Crowd-averse friendly</span>
-            <span class="pd__chip" role="listitem">Scenic drives</span>
-            <span class="pd__chip" role="listitem">Light hikes / walks</span>
-            <span class="pd__chip" role="listitem">Good photo ops</span>
-          </div>
-          <p class="pd__note">
-            Tip: Use ←/→ on your keyboard. On mobile, tap the arrows.
-          </p>
-        </div>
-
-        <figure class="pd__heroMedia">
-          {
-            heroImage ? (
-              <img
-                class="pd__img"
-                src={heroImage}
-                alt={heroImageAlt}
-                loading="eager"
-              />
-            ) : (
-              <div class="pd__placeholder">Add a hero image</div>
-            )
-          }
-        </figure>
+<Layout title={title} description={subtitle}>
+  <div class="pd" id={deckId} style={`--pd-accent:${accent};`}>
+    <header class="pd__topbar">
+      <a class="pd__back" href={backHref} aria-label="Back to Travel">← Back</a>
+      <div class="pd__topmeta">
+        <div class="pd__title">{title}</div>
+        {subtitle ? <div class="pd__subtitle">{subtitle}</div> : null}
       </div>
-    </section>
-
-    {
-      safeSlides.map((s, i) => {
-        const idx = i + 1;
-        return (
-          <section
-            class="pd__slide"
-            data-pd-slide={idx}
-            hidden
-            aria-label={`Slide ${idx + 1}`}
-          >
-            <div class="pd__grid">
-              <div class="pd__copy">
-                {s.kicker ? <div class="pd__kicker">{s.kicker}</div> : null}
-                {s.title ? <h2 class="pd__h2">{s.title}</h2> : null}
-
-                {s.body ? <div class="pd__body" set:html={s.body} /> : null}
-
-                {Array.isArray(s.bullets) && s.bullets.length ? (
-                  <ul class="pd__bullets">
-                    {s.bullets.map((b) => (
-                      <li>{b}</li>
-                    ))}
-                  </ul>
-                ) : null}
-
-                {s.note ? <p class="pd__note">{s.note}</p> : null}
-              </div>
-
-              <figure class="pd__media">
-                {s.image ? (
-                  <>
-                    <img
-                      class="pd__img"
-                      src={s.image}
-                      alt={s.imageAlt ?? ""}
-                      loading="lazy"
-                    />
-                    {s.caption ? (
-                      <figcaption class="pd__caption" set:html={s.caption} />
-                    ) : null}
-                  </>
-                ) : (
-                  <div class="pd__placeholder">No image for this slide</div>
-                )}
-              </figure>
-            </div>
-          </section>
-        );
-      })
-    }
-  </main>
-
-  <footer class="pd__footer">
-    <div class="pd__progress" aria-label="Slide progress">
-      <div class="pd__count">
-        <span data-pd="current">1</span> / <span data-pd="total"
-          >{safeSlides.length + 1}</span
+      <div class="pd__controls" aria-label="Deck controls">
+        <button
+          class="pd__btn"
+          data-pd="prev"
+          type="button"
+          aria-label="Previous slide">‹</button
+        >
+        <button
+          class="pd__btn"
+          data-pd="next"
+          type="button"
+          aria-label="Next slide">›</button
         >
       </div>
+    </header>
 
-      <div class="pd__dots" role="tablist" aria-label="Slide selector">
-        {
-          Array.from({ length: safeSlides.length + 1 }).map((_, i) => (
-            <button
-              class="pd__dot"
-              type="button"
-              data-pd-dot={i}
-              aria-label={`Go to slide ${i + 1}`}
-              aria-current={i === 0 ? "true" : "false"}
-            />
-          ))
-        }
+    <main class="pd__stage" aria-live="polite">
+      <!-- Slide 0: Hero -->
+      <section class="pd__slide" data-pd-slide="0" aria-label="Slide 1">
+        <div class="pd__hero">
+          <div class="pd__heroCopy">
+            <div class="pd__kicker">Pitch Deck</div>
+            <h1 class="pd__h1">{title}</h1>
+            {subtitle ? <p class="pd__lede">{subtitle}</p> : null}
+            <div class="pd__heroChips" role="list" aria-label="Quick filters">
+              <span class="pd__chip" role="listitem">Crowd-averse friendly</span
+              >
+              <span class="pd__chip" role="listitem">Scenic drives</span>
+              <span class="pd__chip" role="listitem">Light hikes / walks</span>
+              <span class="pd__chip" role="listitem">Good photo ops</span>
+            </div>
+            <p class="pd__note">
+              Tip: Use ←/→ on your keyboard. On mobile, tap the arrows.
+            </p>
+          </div>
+
+          <figure class="pd__heroMedia">
+            {
+              heroImage ? (
+                <img
+                  class="pd__img"
+                  src={heroImage}
+                  alt={heroImageAlt}
+                  loading="eager"
+                />
+              ) : (
+                <div class="pd__placeholder">Add a hero image</div>
+              )
+            }
+          </figure>
+        </div>
+      </section>
+
+      {
+        safeSlides.map((s, i) => {
+          const idx = i + 1;
+          return (
+            <section
+              class="pd__slide"
+              data-pd-slide={idx}
+              hidden
+              aria-label={`Slide ${idx + 1}`}
+            >
+              <div class="pd__grid">
+                <div class="pd__copy">
+                  {s.kicker ? <div class="pd__kicker">{s.kicker}</div> : null}
+                  {s.title ? <h2 class="pd__h2">{s.title}</h2> : null}
+
+                  {s.body ? <div class="pd__body" set:html={s.body} /> : null}
+
+                  {Array.isArray(s.bullets) && s.bullets.length ? (
+                    <ul class="pd__bullets">
+                      {s.bullets.map((b) => (
+                        <li>{b}</li>
+                      ))}
+                    </ul>
+                  ) : null}
+
+                  {s.note ? <p class="pd__note">{s.note}</p> : null}
+                </div>
+
+                <figure class="pd__media">
+                  {s.image ? (
+                    <>
+                      <img
+                        class="pd__img"
+                        src={s.image}
+                        alt={s.imageAlt ?? ""}
+                        loading="lazy"
+                      />
+                      {s.caption ? (
+                        <figcaption class="pd__caption" set:html={s.caption} />
+                      ) : null}
+                    </>
+                  ) : (
+                    <div class="pd__placeholder">No image for this slide</div>
+                  )}
+                </figure>
+              </div>
+            </section>
+          );
+        })
+      }
+    </main>
+
+    <footer class="pd__footer">
+      <div class="pd__progress" aria-label="Slide progress">
+        <div class="pd__count">
+          <span data-pd="current">1</span> / <span data-pd="total"
+            >{safeSlides.length + 1}</span
+          >
+        </div>
+
+        <div class="pd__dots" role="tablist" aria-label="Slide selector">
+          {
+            Array.from({ length: safeSlides.length + 1 }).map((_, i) => (
+              <button
+                class="pd__dot"
+                type="button"
+                data-pd-dot={i}
+                aria-label={`Go to slide ${i + 1}`}
+                aria-current={i === 0 ? "true" : "false"}
+              />
+            ))
+          }
+        </div>
       </div>
-    </div>
 
-    <div class="pd__fineprint">
-      Built as static HTML/CSS with a tiny script. Images credited by source
-      link.
-    </div>
-  </footer>
+      <div class="pd__fineprint">
+        Built as static HTML/CSS with a tiny script. Images credited by source
+        link.
+      </div>
+    </footer>
 
-  <script is:inline define:vars={{ deckId }}>
-    (function () {
-      const root = document.getElementById(deckId);
-      if (!root) return;
+    <script is:inline define:vars={{ deckId }}>
+      (function () {
+        const root = document.getElementById(deckId);
+        if (!root) return;
 
-      const slides = Array.from(root.querySelectorAll("[data-pd-slide]"));
-      const btnPrev = root.querySelector('[data-pd="prev"]');
-      const btnNext = root.querySelector('[data-pd="next"]');
-      const dots = Array.from(root.querySelectorAll("[data-pd-dot]"));
-      const elCurrent = root.querySelector('[data-pd="current"]');
-      const elTotal = root.querySelector('[data-pd="total"]');
+        const slides = Array.from(root.querySelectorAll("[data-pd-slide]"));
+        const btnPrev = root.querySelector('[data-pd="prev"]');
+        const btnNext = root.querySelector('[data-pd="next"]');
+        const dots = Array.from(root.querySelectorAll("[data-pd-dot]"));
+        const elCurrent = root.querySelector('[data-pd="current"]');
+        const elTotal = root.querySelector('[data-pd="total"]');
 
-      let idx = 0;
-      const max = slides.length - 1;
+        let idx = 0;
+        const max = slides.length - 1;
 
-      function render() {
-        slides.forEach((s, i) => {
-          s.hidden = i !== idx;
+        function render() {
+          slides.forEach((s, i) => {
+            s.hidden = i !== idx;
+          });
+          if (elCurrent) elCurrent.textContent = String(idx + 1);
+          if (elTotal) elTotal.textContent = String(slides.length);
+
+          dots.forEach((d, i) => {
+            d.setAttribute("aria-current", i === idx ? "true" : "false");
+            d.classList.toggle("is-active", i === idx);
+          });
+
+          if (btnPrev) btnPrev.disabled = idx === 0;
+          if (btnNext) btnNext.disabled = idx === max;
+
+          // update hash so refresh keeps place
+          try {
+            history.replaceState(null, "", "#" + (idx + 1));
+          } catch (e) {}
+        }
+
+        function go(n) {
+          idx = Math.max(0, Math.min(max, n));
+          render();
+        }
+
+        function next() {
+          go(idx + 1);
+        }
+        function prev() {
+          go(idx - 1);
+        }
+
+        btnNext && btnNext.addEventListener("click", next);
+        btnPrev && btnPrev.addEventListener("click", prev);
+
+        dots.forEach((d) => {
+          d.addEventListener("click", () =>
+            go(Number(d.getAttribute("data-pd-dot") || "0"))
+          );
         });
-        if (elCurrent) elCurrent.textContent = String(idx + 1);
-        if (elTotal) elTotal.textContent = String(slides.length);
 
-        dots.forEach((d, i) => {
-          d.setAttribute("aria-current", i === idx ? "true" : "false");
-          d.classList.toggle("is-active", i === idx);
+        window.addEventListener("keydown", (e) => {
+          if (e.key === "ArrowRight") next();
+          if (e.key === "ArrowLeft") prev();
+          if (e.key === "Home") go(0);
+          if (e.key === "End") go(max);
         });
 
-        if (btnPrev) btnPrev.disabled = idx === 0;
-        if (btnNext) btnNext.disabled = idx === max;
+        // load initial from hash, if present
+        const h = (location.hash || "").replace("#", "");
+        const n = parseInt(h, 10);
+        if (!Number.isNaN(n) && n >= 1 && n <= slides.length) idx = n - 1;
 
-        // update hash so refresh keeps place
-        try {
-          history.replaceState(null, "", "#" + (idx + 1));
-        } catch (e) {}
-      }
-
-      function go(n) {
-        idx = Math.max(0, Math.min(max, n));
         render();
-      }
-
-      function next() {
-        go(idx + 1);
-      }
-      function prev() {
-        go(idx - 1);
-      }
-
-      btnNext && btnNext.addEventListener("click", next);
-      btnPrev && btnPrev.addEventListener("click", prev);
-
-      dots.forEach((d) => {
-        d.addEventListener("click", () =>
-          go(Number(d.getAttribute("data-pd-dot") || "0"))
-        );
-      });
-
-      window.addEventListener("keydown", (e) => {
-        if (e.key === "ArrowRight") next();
-        if (e.key === "ArrowLeft") prev();
-        if (e.key === "Home") go(0);
-        if (e.key === "End") go(max);
-      });
-
-      // load initial from hash, if present
-      const h = (location.hash || "").replace("#", "");
-      const n = parseInt(h, 10);
-      if (!Number.isNaN(n) && n >= 1 && n <= slides.length) idx = n - 1;
-
-      render();
-    })();
-  </script>
-</div>
+      })();
+    </script>
+  </div>
+</Layout>
