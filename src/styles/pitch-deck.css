@@ -1,15 +1,16 @@
 /* pitch-deck.css */
 .pd {
   --pd-bg: var(--color-bg);
-  --pd-panel: rgba(255, 255, 255, 0.03);
+  --pd-panel: var(--color-card-bg);
   --pd-text: var(--color-text);
   --pd-muted: var(--color-text-dim);
   --pd-soft: rgba(255, 255, 255, 0.05);
   --pd-accent: var(--color-primary);
-  --pd-radius: 24px;
+  --pd-radius: 12px;
 
   color: var(--pd-text);
   background: var(--pd-bg);
+  font-family: var(--font-main);
   min-height: 100svh;
 }
 
@@ -50,8 +51,9 @@
 }
 
 .pd__title { 
-  font-weight: 700; 
+  font-weight: 800; 
   font-size: 1.1rem;
+  color: var(--pd-text);
   line-height: 1;
 }
 
@@ -142,6 +144,7 @@
   font-size: clamp(2.5rem, 5vw, 4rem);
   line-height: 1.1;
   margin-bottom: 2rem;
+  color: var(--pd-text);
 }
 
 .pd__lede {

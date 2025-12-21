@@ -1,15 +1,15 @@
 :root {
-  --color-primary: #f26419; /* Softer, more premium orange */
-  --color-secondary: #33658a; /* Deep, professional blue */
-  --color-accent: #86bbd8; /* Light blue accent */
-  --color-bg: #0d1317; /* Deep slate instead of pure black */
-  --color-text: #e0e1dd;
-  --color-text-dim: #9ea1a5;
-  --color-card-bg: rgba(255, 255, 255, 0.03);
-  --glass-border: rgba(255, 255, 255, 0.08);
+  --color-primary: #ff7b39; /* Increased vibrance for contrast */
+  --color-secondary: #4a90e2; /* Clearer blue */
+  --color-accent: #aaceff;
+  --color-bg: #0f172a; /* Slate 900 - clean and deep */
+  --color-text: #f8fafc; /* Slate 50 - extremely high contrast */
+  --color-text-dim: #94a3b8; /* Slate 400 */
+  --color-card-bg: rgba(30, 41, 59, 0.7); /* Slate 800 with transparency */
+  --glass-border: rgba(148, 163, 184, 0.1);
   --font-main: 'Outfit', 'Inter', system-ui, -apple-system, sans-serif;
-  --transition-smooth: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
-  --shadow-premium: 0 20px 40px rgba(0, 0, 0, 0.4);
+  --transition-smooth: all 0.3s ease;
+  --shadow-premium: 0 10px 30px -10px rgba(0, 0, 0, 0.5);
 }
 
 * {
@@ -20,20 +20,18 @@
 
 body {
   background-color: var(--color-bg);
-  background-image: 
-    radial-gradient(circle at 20% 20%, rgba(242, 100, 25, 0.03) 0%, transparent 40%),
-    radial-gradient(circle at 80% 80%, rgba(51, 101, 138, 0.05) 0%, transparent 40%);
   color: var(--color-text);
   font-family: var(--font-main);
   line-height: 1.6;
-  overflow-x: hidden;
-  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5, h6 {
   color: var(--color-text);
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-family: var(--font-main);
+  font-weight: 800;
+  line-height: 1.2;
 }
 
 a {
@@ -51,6 +49,5 @@ a:hover {
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
-  border-radius: 20px;
-  box-shadow: var(--shadow-premium);
+  border-radius: 12px;
 }
