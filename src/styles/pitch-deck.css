@@ -15,8 +15,6 @@
   -webkit-font-smoothing: antialiased;
 }
 
-.pd * { box-sizing: border-box; }
-
 .pd__topbar {
   position: sticky;
   top: 0;
