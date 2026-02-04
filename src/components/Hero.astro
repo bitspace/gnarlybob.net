@@ -1,0 +1,92 @@
+---
+---
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <p class="hud-text hero-label">// since 1989</p>
+      <h1 class="hero-title">
+        <span class="text-gradient">gnarlybob</span>
+      </h1>
+      <p class="hero-description">
+        On the internet since 1989.
+        Opinions on tech, culture, and the slow death of the open web.
+      </p>
+
+      <div class="status-section hud-panel">
+        <p class="status-label hud-text">// Status</p>
+        <p class="status-message">Site under construction. Check back soon.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-xl) 0;
+    padding-top: calc(var(--space-xl) + 60px);
+    text-align: center;
+  }
+
+  .hero-content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .hero-label {
+    margin-bottom: var(--space-sm);
+  }
+
+  .hero-title {
+    font-size: 4rem;
+    margin-bottom: var(--space-md);
+    line-height: 1;
+  }
+
+  .hero-description {
+    font-size: 1.25rem;
+    color: var(--color-text-muted);
+    line-height: 1.7;
+    margin-bottom: var(--space-lg);
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .status-section {
+    padding: var(--space-md);
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .status-label {
+    margin: 0 0 var(--space-sm);
+  }
+
+  .status-message {
+    color: var(--color-text-muted);
+    font-family: var(--font-mono);
+    font-size: 0.875rem;
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .hero-title {
+      font-size: 2.5rem;
+    }
+
+    .hero-description {
+      font-size: 1.1rem;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .hero-title {
+      font-size: 2rem;
+    }
+  }
+</style>
