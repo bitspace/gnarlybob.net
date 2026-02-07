@@ -5,6 +5,9 @@
     <a href="/" class="logo">
       <span class="logo-text">gnarly</span><span class="logo-dot">bob</span>
     </a>
+    <nav class="nav">
+      <a href="/writing/" class="nav-link hud-text">Writing</a>
+    </nav>
   </div>
 </header>
 
@@ -40,5 +43,19 @@
 
   .logo-dot {
     color: var(--color-accent);
+  }
+
+  .nav {
+    display: flex;
+    gap: var(--space-sm);
+  }
+
+  .nav-link {
+    font-size: 0.8rem;
+    transition: color 0.2s ease;
+  }
+
+  .nav-link:hover {
+    color: var(--color-primary);
   }
 </style>
