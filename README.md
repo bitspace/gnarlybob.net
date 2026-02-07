@@ -1,25 +1,15 @@
-# Gnarly Bob Travel
+# gnarlybob.net
 
-Deployment and development of the travel section for [gnarlybob.net](https://gnarlybob.net).
-
-The travel content is hosted at `/travel` (e.g., `gnarlybob.net/travel`).
-
-## Project Overview
-
-This project uses the **Astro** static site generator to build a fast, modern travel section. The core goal of the MVP is to provide three separate "pitch decks" reviewing potential candidates for planned travel in Summer 2026.
-
-### Key Features (MVP)
-- **3 Travel Pitch Decks**: Interactive reviews of candidates for Summer 2026 travel.
-- **Modern Design**: High-end aesthetics using Vanilla CSS and CSS Variables.
-- **Static Performance**: Blazing fast load times leveraging Astro's static generation.
+Personal landing page at [gnarlybob.net](https://gnarlybob.net) — a static site with a cyberpunk/HUD aesthetic.
 
 ## Technical Stack
 
-- **Framework**: [Astro](https://astro.build/)
-- **Templating**: HTML / Astro Components
-- **Styling**: Vanilla CSS with CSS Variables for theming (No utility frameworks like Tailwind).
-- **Deployment**: Debian 12 VPS with Nginx & Certbot (SSL).
-- **CI/CD**: GitHub Actions.
+- **Framework**: [Astro 5](https://astro.build/) (static output, no client-side JS)
+- **Language**: TypeScript (strict)
+- **Styling**: Vanilla CSS with CSS custom properties (no utility frameworks)
+- **Fonts**: Google Fonts (Inter + JetBrains Mono)
+- **Deployment**: Debian 12 VPS with Nginx & Certbot (SSL)
+- **CI/CD**: GitHub Actions
 
 ## Development
 
@@ -29,40 +19,44 @@ This project uses the **Astro** static site generator to build a fast, modern tr
 
 ### Local Setup
 ```bash
-# Install dependencies
-npm install
-
-# Start the development server
-npm run dev
+npm install        # Install dependencies
+npm run dev        # Start dev server (localhost:4321)
+npm run build      # Production build → dist/
+npm run preview    # Preview production build
+npx astro check    # TypeScript type checking
 ```
 
-### Path Configuration
-Since the site is hosted under the `/travel` subpath, ensure the following is set in `astro.config.mjs`:
-```javascript
-export default defineConfig({
-  base: '/travel',
-  // ... other config
-});
+## Project Structure
+
+```
+src/
+├── pages/
+│   ├── index.astro        # Landing page
+│   └── health.json.ts     # Health check endpoint
+├── layouts/
+│   └── BaseLayout.astro   # Root HTML layout
+├── components/
+│   ├── Header.astro
+│   ├── Hero.astro
+│   └── Footer.astro
+├── styles/
+│   └── global.css         # CSS variables, utilities, breakpoints
+public/
+└── favicon.svg
 ```
 
 ## Deployment
 
-The site is automatically deployed via GitHub Actions when pushing to the `main` or `development` branches.
+GitHub Actions workflow deploys on push to `main`:
+1. `npm ci` → `npm run build`
+2. Deploys `dist/` to `/var/www/gnarlybob.net/` via SSH
+
+### Required Secrets
+- `SSH_PRIVATE_KEY`: Private key for VPS access
+- `VPS_HOST`: IP address or domain of the VPS
+- `VPS_USER`: SSH username
 
 ### Server Environment
 - **OS**: Debian 12
 - **Web Server**: Nginx
 - **SSL**: Certbot / Let's Encrypt
-- **Root Directory**: `/var/www/gnarlybob.net/travel/`
-
-### Deployment Secrets
-The following secrets must be configured in the GitHub repository:
-- `SSH_PRIVATE_KEY`: Private key for VPS access.
-- `VPS_HOST`: IP address or domain of the VPS.
-- `VPS_USER`: SSH username.
-
-## Project Structure (Planned)
-- `src/pages/index.astro`: The main landing page for `/travel`.
-- `src/pages/pitch-decks/`: Contains the three Summer 2026 pitch decks.
-- `src/styles/`: Global CSS and theme variables.
-- `src/components/`: Reusable UI elements for the pitch decks.
