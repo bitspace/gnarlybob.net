@@ -129,6 +129,6 @@
     "heroCredit": "AI-generated",
     "isGeneratedImage": true,
     "textAlign": "center",
-    "body": "<!-- AUTHOR: Write the closer. -->"
+    "body": "<p class=\"closer-poem\">Roses are red,<br>Rabbits are quick,<br>Now get on your knees,<br>Happy Valentine's Day!</p>"
   }
 ]
