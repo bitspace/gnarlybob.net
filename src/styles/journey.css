@@ -314,4 +314,73 @@
 /* ===========================
    9. AI Image Grain Overlay
    =========================== */
-/* Placeholder — added in Phase 3 */
+.chapter-hero--generated img {
+  filter: saturate(0.7) contrast(1.05);
+}
+
+.chapter-hero--generated::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  pointer-events: none;
+}
+
+/* ===========================
+   10. Credits Section
+   =========================== */
+.credits {
+  background: var(--j-bg-deep);
+  padding: var(--j-space-lg) var(--j-space-sm);
+  border-top: 1px solid var(--j-accent-slate);
+}
+
+.credits-content {
+  max-width: var(--j-max-width-text);
+  margin: 0 auto;
+}
+
+.credits-heading {
+  font-family: var(--j-font-mono);
+  font-size: var(--j-text-caption);
+  color: var(--j-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: var(--j-space-sm);
+}
+
+.credits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.credits-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--j-space-sm);
+  padding: var(--j-space-xs) 0;
+  border-bottom: 1px solid rgba(74, 102, 112, 0.2);
+  font-size: var(--j-text-caption);
+}
+
+.credits-file {
+  font-family: var(--j-font-mono);
+  color: var(--j-text-primary);
+}
+
+.credits-source {
+  color: var(--j-text-secondary);
+  text-align: right;
+}
+
+.credits-placeholder {
+  font-size: var(--j-text-caption);
+  color: var(--j-text-secondary);
+  font-style: italic;
+}

@@ -7,9 +7,7 @@ import BeforeAfter from '../../components/travel/BeforeAfter.astro';
 import chapters from '../../data/travel/ithaca-chapters.json';
 import waterfalls from '../../data/travel/ithaca-waterfalls.json';
 import restaurants from '../../data/travel/ithaca-restaurants.json';
-
-// Chapters that get special content injected after their body text
-const specialChapters = new Set(['215-feet', 'field-guide', 'eat-fish']);
+import credits from '../../data/travel/ithaca-credits.json';
 ---
 <JourneyLayout
   title="Ithaca — gnarlybob"
@@ -21,6 +19,8 @@ const specialChapters = new Set(['215-feet', 'field-guide', 'eat-fish']);
       heroImage={ch.heroImage ?? undefined}
       heroAlt={ch.heroAlt ?? undefined}
       heroCredit={ch.heroCredit ?? undefined}
+      heroLoading={ch.number === 1 ? 'eager' : 'lazy'}
+      isGeneratedImage={ch.isGeneratedImage}
       textAlign={ch.textAlign as 'left' | 'center' | 'right'}
       class={ch.number % 2 === 0 ? 'chapter--alt' : undefined}
     >
@@ -69,6 +69,30 @@ const specialChapters = new Set(['215-feet', 'field-guide', 'eat-fish']);
       )}
     </Chapter>
   ))}
+
+  <section class="credits" aria-label="Image credits">
+    <div class="credits-content">
+      <h2 class="credits-heading">Image Credits</h2>
+      {credits.length > 0 ? (
+        <ul class="credits-list">
+          {credits.map((c) => (
+            <li class="credits-item">
+              <span class="credits-file">{c.file}</span>
+              {c.isGenerated ? (
+                <span class="credits-source">AI-generated</span>
+              ) : (
+                <span class="credits-source">
+                  {c.author} / {c.source} / {c.license}
+                </span>
+              )}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="credits-placeholder">Image credits will be added as photography is sourced.</p>
+      )}
+    </div>
+  </section>
 </JourneyLayout>
 
 <style>

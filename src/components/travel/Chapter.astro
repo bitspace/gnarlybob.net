@@ -4,11 +4,22 @@ interface Props {
   heroImage?: string;
   heroAlt?: string;
   heroCredit?: string;
+  heroLoading?: 'lazy' | 'eager';
+  isGeneratedImage?: boolean;
   textAlign?: 'left' | 'center' | 'right';
   class?: string;
 }
 
-const { id, heroImage, heroAlt, heroCredit, textAlign = 'left', class: className } = Astro.props;
+const {
+  id,
+  heroImage,
+  heroAlt,
+  heroCredit,
+  heroLoading = 'lazy',
+  isGeneratedImage = false,
+  textAlign = 'left',
+  class: className
+} = Astro.props;
 ---
 <section
   class:list={['chapter', className]}
@@ -16,8 +27,8 @@ const { id, heroImage, heroAlt, heroCredit, textAlign = 'left', class: className
   id={id}
 >
   {heroImage && (
-    <div class="chapter-hero">
-      <img src={heroImage} alt={heroAlt || ''} loading="lazy" />
+    <div class:list={['chapter-hero', isGeneratedImage && 'chapter-hero--generated']}>
+      <img src={heroImage} alt={heroAlt || ''} loading={heroLoading} />
       {heroCredit && <span class="chapter-hero-credit">{heroCredit}</span>}
     </div>
   )}
