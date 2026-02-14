@@ -19,7 +19,7 @@
     "heroCredit": null,
     "isGeneratedImage": false,
     "textAlign": "center",
-    "body": "<p>I asked the same question to six different AI models. \"Plan a week-long road trip to the Finger Lakes for a photographer with a bad back and a partner who doesn't care about Riesling.\"</p><p>Claude showed up first with a clean itinerary. ChatGPT wrote a novel. Gemini gave me two answers that contradicted each other. Perplexity cited its sources like a nervous grad student. The second Gemini included LaTeX formulas for calculating golden hour shutter speeds at specific latitudes. One of them provided GPS coordinates to nine decimal places — sub-millimeter accuracy for a parking lot.</p><p>They mostly agreed on the important stuff, which is more than you can say for most planning committees. Here's the trip they designed.</p>"
+    "body": "<p>I asked the same question to six different AI models. \"Plan a week-long road trip to the Finger Lakes for someone who loves hiking, someone who doesn't, and neither of them gives a damn about Riesling.\"</p><p>Claude showed up first with a clean itinerary. ChatGPT wrote a novel. Gemini gave me two answers that contradicted each other. Perplexity cited its sources like a nervous grad student. The second Gemini included LaTeX formulas for calculating golden hour shutter speeds at specific latitudes. One of them provided GPS coordinates to nine decimal places — sub-millimeter accuracy for a parking lot.</p><p>They mostly agreed on the important stuff, which is more than you can say for most planning committees. Here's the trip they designed.</p>"
   },
   {
     "id": "280-miles-zero-interstate",
@@ -52,7 +52,7 @@
     "heroCredit": "AI-generated",
     "isGeneratedImage": true,
     "textAlign": "center",
-    "body": "<p>Every travel blog written by someone under thirty says you should stay at a converted barn with a communal breakfast table where strangers ask how you slept. No.</p><p>Hampton Inn. Whirlpool room. Free breakfast. Sixty-six rooms. Indoor pool. The parking lot is flat and the ice machine works.</p><p>Here's what a Hampton Inn doesn't have: personality. And that's the entire selling proposition. Nobody knocks on your door to offer you locally foraged granola. Nobody leaves a handwritten note. Nobody asks about your journey. You walk in, the room looks like every other room, and your nervous system finally unclenches.</p><p>The whirlpool room isn't indulgence. It's infrastructure. Her back needs hot water after a day of gorge trails the way a car needs gas after a day of mountain roads. We budget for both.</p>"
+    "body": "<p>Every travel blog written by someone under thirty says you should stay at a converted barn with a communal breakfast table where strangers ask how you slept. No.</p><p>Hampton Inn. Whirlpool room. Free breakfast. Sixty-six rooms. Indoor pool. The parking lot is flat and the ice machine works.</p><p>Here's what a Hampton Inn doesn't have: personality. And that's the entire selling proposition. Nobody knocks on your door to offer you locally foraged granola. Nobody leaves a handwritten note. Nobody asks about your journey. You walk in, the room looks like every other room, and your nervous system finally unclenches.</p><p>The whirlpool room isn't indulgence. It's infrastructure. After a day of gorge trails, hot water isn't optional — it's how you convince your legs to do it again tomorrow. We budget accordingly.</p>"
   },
   {
     "id": "215-feet",
@@ -63,18 +63,18 @@
     "heroCredit": "Photo: See1,Do1,Teach1 / Wikimedia Commons / CC BY 2.0",
     "isGeneratedImage": false,
     "textAlign": "center",
-    "body": "<p>Taller than Niagara. Flat gravel trail, three-quarters of a mile. Shale amphitheater walls two hundred feet high on both sides, and at the end, 215 feet of falling water that makes your camera feel inadequate and your problems feel optional.</p><p>Your back says yes. Your camera says hell yes.</p>"
+    "body": "<p>Taller than Niagara. Flat gravel trail, three-quarters of a mile. Shale amphitheater walls two hundred feet high on both sides, and at the end, 215 feet of falling water that makes your camera feel inadequate and your problems feel optional.</p><p>Your legs say thank you. Your camera says hell yes.</p>"
   },
   {
     "id": "field-guide",
     "number": 7,
-    "title": "The Field Guide (For a Photographer With a Bad Back)",
+    "title": "The Field Guide (For the Sensibly Lazy)",
     "heroImage": null,
     "heroAlt": null,
     "heroCredit": null,
     "isGeneratedImage": false,
     "textAlign": "left",
-    "body": "<p>There are more waterfalls within forty-five minutes of this Hampton Inn than most people see in a lifetime. Here are the ones you can actually reach without destroying your spine.</p>"
+    "body": "<p>There are more waterfalls within forty-five minutes of this Hampton Inn than most people see in a lifetime. Here are the ones you can actually reach without earning them.</p>"
   },
   {
     "id": "here-first",
