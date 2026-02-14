@@ -1,0 +1,112 @@
+[
+  {
+    "file": "gorge-dawn-vibe.webp",
+    "author": "AI-generated",
+    "source": "AI image generation",
+    "license": "Original work",
+    "sourceUrl": null,
+    "licenseUrl": null,
+    "chapter": "Ch 1 — She Said Waterfalls",
+    "isGenerated": true
+  },
+  {
+    "file": "hotel-exterior-dusk.webp",
+    "author": "AI-generated",
+    "source": "AI image generation",
+    "license": "Original work",
+    "sourceUrl": null,
+    "licenseUrl": null,
+    "chapter": "Ch 5 — Home Base",
+    "isGenerated": true
+  },
+  {
+    "file": "water-mist-background.webp",
+    "author": "AI-generated",
+    "source": "AI image generation",
+    "license": "Original work",
+    "sourceUrl": null,
+    "licenseUrl": null,
+    "chapter": "Ch 12 — The Closer",
+    "isGenerated": true
+  },
+  {
+    "file": "mohawk-trail-hairpin.webp",
+    "author": "Joe Mabel",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:North_Adams,_MA_-_looking_east_on_Mohawk_Trail_01_(9375722388).jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/3.0",
+    "chapter": "Ch 3 — 280 Miles, Zero Interstate",
+    "isGenerated": false
+  },
+  {
+    "file": "bridge-of-flowers.webp",
+    "author": "FFM784",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Bridge_of_Flowers,_Shelburne_Falls,_MA_2017_07_22a.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "chapter": "Ch 4 — The Bridge of Flowers Is Not a Metaphor",
+    "isGenerated": false
+  },
+  {
+    "file": "taughannock-falls-hero.webp",
+    "author": "See1,Do1,Teach1",
+    "source": "Wikimedia Commons (via Flickr)",
+    "license": "CC BY 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Taughannock_Falls_Park_(30711123610).jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "chapter": "Ch 6 — 215 Feet of Shut Up",
+    "isGenerated": false
+  },
+  {
+    "file": "taughannock-falls-gorge-view.webp",
+    "author": "Andre Carrotflower",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Taughannock_Falls_State_Park_-_20171001_-_30.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "chapter": "Ch 6 — Before/After (dry)",
+    "isGenerated": false
+  },
+  {
+    "file": "taughannock-falls-gorge-flood.webp",
+    "author": "AI-generated (base: Andre Carrotflower, CC BY-SA 4.0)",
+    "source": "FLUX.1 Kontext edit of Wikimedia Commons photo",
+    "license": "Derivative — original CC BY-SA 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Taughannock_Falls_State_Park_-_20171001_-_30.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "chapter": "Ch 6 — Before/After (flow)",
+    "isGenerated": true
+  },
+  {
+    "file": "ganondagan-longhouse.webp",
+    "author": "Dmadeo",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:Ganondagan-house.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "chapter": "Ch 8 — The Place That Was Here First",
+    "isGenerated": false
+  },
+  {
+    "file": "sapsucker-woods-bird.webp",
+    "author": "Wildreturn",
+    "source": "Wikimedia Commons (via Flickr)",
+    "license": "CC BY 2.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:A_Yellow-bellied_Sapsucker%27s_direct_gaze.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by/2.0",
+    "chapter": "Ch 9 — Sapsucker Woods",
+    "isGenerated": false
+  },
+  {
+    "file": "quechee-gorge.webp",
+    "author": "Dsdugan",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "sourceUrl": "https://commons.wikimedia.org/wiki/File:15_23_0757_quechee_gorge.jpg",
+    "licenseUrl": "https://creativecommons.org/licenses/by-sa/4.0",
+    "chapter": "Ch 11 — Vermont the Long Way Home",
+    "isGenerated": false
+  }
+]

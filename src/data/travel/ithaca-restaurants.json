@@ -1,0 +1,44 @@
+[
+  {
+    "name": "Boatyard Grill",
+    "cuisine": "Seafood",
+    "price": "$$",
+    "take": "Lakefront deck. Fresh catch. The sunset does half the work for the ambiance."
+  },
+  {
+    "name": "Glenwood Pines",
+    "cuisine": "Fish Fry",
+    "price": "$",
+    "take": "Cash only. Paper plates. The fish fry is why you drove past six other restaurants."
+  },
+  {
+    "name": "Moosewood",
+    "cuisine": "Plant-Forward",
+    "price": "$$",
+    "take": "The cookbook is famous. The restaurant is better. Carnivores welcome."
+  },
+  {
+    "name": "Maxie's Supper Club",
+    "cuisine": "Cajun / Oyster Bar",
+    "price": "$$",
+    "take": "New Orleans in upstate New York. The oysters are correct. The po'boys are aggressive."
+  },
+  {
+    "name": "Simeon's",
+    "cuisine": "Seafood Bistro",
+    "price": "$$",
+    "take": "On the Commons. Good for the night you want a tablecloth but not a reservation."
+  },
+  {
+    "name": "Coltivare",
+    "cuisine": "Farm-to-Table Italian",
+    "price": "$$",
+    "take": "Student-run. Cornell hospitality program. The pasta is better than it has any right to be."
+  },
+  {
+    "name": "Collegetown Bagels",
+    "cuisine": "Grab-and-Go",
+    "price": "$",
+    "take": "CTB. Locals just say the letters. Open early. Coffee is real. Bagels are enormous."
+  }
+]

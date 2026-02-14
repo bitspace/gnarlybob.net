@@ -1,0 +1,216 @@
+---
+import { Picture } from 'astro:assets';
+import type { ImageMetadata } from 'astro';
+
+interface Props {
+  beforeSrc?: ImageMetadata;
+  afterSrc?: ImageMetadata;
+  beforeLabel?: string;
+  afterLabel?: string;
+  alt?: string;
+}
+
+const {
+  beforeSrc,
+  afterSrc,
+  beforeLabel = 'Dry July',
+  afterLabel = 'After Rain',
+  alt = 'Taughannock Falls comparison'
+} = Astro.props;
+---
+<div class="before-after" style="--split-position: 50%;">
+  <div class="before-after-container">
+    <!-- After (background, full) -->
+    <div class="before-after-layer before-after-after">
+      {afterSrc ? (
+        <Picture
+          src={afterSrc}
+          alt={`${alt} — after`}
+          widths={[600, 1200]}
+          sizes="(max-width: 800px) 100vw, 800px"
+          formats={['avif', 'webp']}
+          loading="lazy"
+        />
+      ) : (
+        <div class="before-after-placeholder before-after-placeholder--after"></div>
+      )}
+    </div>
+    <!-- Before (foreground, clipped) -->
+    <div class="before-after-layer before-after-before">
+      {beforeSrc ? (
+        <Picture
+          src={beforeSrc}
+          alt={`${alt} — before`}
+          widths={[600, 1200]}
+          sizes="(max-width: 800px) 100vw, 800px"
+          formats={['avif', 'webp']}
+          loading="lazy"
+        />
+      ) : (
+        <div class="before-after-placeholder before-after-placeholder--before"></div>
+      )}
+    </div>
+    <!-- Divider -->
+    <div class="before-after-divider" role="slider" aria-label="Image comparison slider" aria-valuemin="0" aria-valuemax="100" aria-valuenow="50" tabindex="0">
+      <div class="before-after-handle">
+        <span class="handle-arrow handle-arrow--left" aria-hidden="true">&#9664;</span>
+        <span class="handle-arrow handle-arrow--right" aria-hidden="true">&#9654;</span>
+      </div>
+    </div>
+    <!-- Labels -->
+    <span class="before-after-label before-after-label--before">{beforeLabel}</span>
+    <span class="before-after-label before-after-label--after">{afterLabel}</span>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const container = document.querySelector('.before-after') as HTMLElement;
+    if (!container) return;
+
+    const divider = container.querySelector('.before-after-divider') as HTMLElement;
+    const rect = () => container.getBoundingClientRect();
+    let active = false;
+
+    function updatePosition(clientX: number) {
+      const { left, width } = rect();
+      const pct = Math.max(0, Math.min(100, ((clientX - left) / width) * 100));
+      container.style.setProperty('--split-position', `${pct}%`);
+      divider.setAttribute('aria-valuenow', String(Math.round(pct)));
+    }
+
+    divider.addEventListener('pointerdown', (e) => {
+      active = true;
+      divider.setPointerCapture(e.pointerId);
+      updatePosition(e.clientX);
+    });
+
+    divider.addEventListener('pointermove', (e) => {
+      if (active) updatePosition(e.clientX);
+    });
+
+    divider.addEventListener('pointerup', () => { active = false; });
+    divider.addEventListener('pointercancel', () => { active = false; });
+
+    divider.addEventListener('keydown', (e) => {
+      const current = parseFloat(container.style.getPropertyValue('--split-position')) || 50;
+      if (e.key === 'ArrowLeft') container.style.setProperty('--split-position', `${Math.max(0, current - 2)}%`);
+      if (e.key === 'ArrowRight') container.style.setProperty('--split-position', `${Math.min(100, current + 2)}%`);
+    });
+  });
+</script>
+
+<style>
+  .before-after {
+    position: relative;
+    max-width: 800px;
+    margin: var(--j-space-md) auto;
+    user-select: none;
+    touch-action: none;
+  }
+
+  .before-after-container {
+    position: relative;
+    aspect-ratio: 16 / 10;
+    overflow: hidden;
+    border-radius: 4px;
+    border: 1px solid var(--j-accent-slate);
+  }
+
+  .before-after-layer {
+    position: absolute;
+    inset: 0;
+  }
+
+  .before-after-before {
+    clip-path: inset(0 calc(100% - var(--split-position)) 0 0);
+    z-index: 1;
+  }
+
+  .before-after-placeholder {
+    width: 100%;
+    height: 100%;
+  }
+
+  .before-after-placeholder--before {
+    background: linear-gradient(135deg, #2a3a4a, #4a5a6a);
+    opacity: 0.6;
+  }
+
+  .before-after-placeholder--after {
+    background: linear-gradient(135deg, #1a4a6a, #2a6a8a);
+    opacity: 0.6;
+  }
+
+  .before-after-layer img,
+  .before-after-layer picture {
+    width: 100%;
+    height: 100%;
+  }
+
+  .before-after-layer picture img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  .before-after-divider {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: var(--split-position);
+    width: 2px;
+    background: var(--j-accent-gold);
+    z-index: 2;
+    cursor: ew-resize;
+    transform: translateX(-50%);
+    outline: none;
+  }
+
+  .before-after-divider:focus-visible {
+    box-shadow: 0 0 0 3px var(--j-accent-gold);
+  }
+
+  .before-after-handle {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 44px;
+    height: 44px;
+    background: var(--j-bg-deep);
+    border: 2px solid var(--j-accent-gold);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2px;
+  }
+
+  .handle-arrow {
+    color: var(--j-accent-gold);
+    font-size: 10px;
+    line-height: 1;
+  }
+
+  .before-after-label {
+    position: absolute;
+    bottom: var(--j-space-xs);
+    font-family: var(--j-font-mono);
+    font-size: var(--j-text-caption);
+    color: var(--j-text-primary);
+    background: var(--j-overlay-dark);
+    padding: 2px 8px;
+    border-radius: 2px;
+    z-index: 3;
+    pointer-events: none;
+  }
+
+  .before-after-label--before {
+    left: var(--j-space-xs);
+  }
+
+  .before-after-label--after {
+    right: var(--j-space-xs);
+  }
+</style>

@@ -1,0 +1,135 @@
+---
+interface Props {
+  name: string;
+  height: string;
+  distance: string;
+  photoRating: number;
+  accessRating: number;
+  detail: string;
+  thumbnail: string;
+}
+
+const { name, height, distance, photoRating, accessRating, detail, thumbnail } = Astro.props;
+
+function renderRating(value: number): string {
+  return '●'.repeat(value) + '○'.repeat(5 - value);
+}
+---
+<article class="waterfall-card">
+  <div class="waterfall-thumb">
+    <div class="waterfall-thumb-placeholder"></div>
+  </div>
+  <div class="waterfall-info">
+    <h3 class="waterfall-name">{name}</h3>
+    <p class="waterfall-stats">{height} · {distance}</p>
+    <div class="waterfall-ratings">
+      <span class="waterfall-rating">
+        <span class="rating-label">Photo</span>
+        <span class="rating-dots">{renderRating(photoRating)}</span>
+      </span>
+      <span class="waterfall-rating">
+        <span class="rating-label">Access</span>
+        <span class="rating-dots">{renderRating(accessRating)}</span>
+      </span>
+    </div>
+    <p class="waterfall-detail"><em>{detail}</em></p>
+  </div>
+</article>
+
+<style>
+  .waterfall-card {
+    flex: 0 0 280px;
+    background: var(--j-bg-card);
+    border: 1px solid var(--j-accent-slate);
+    border-radius: 4px;
+    overflow: hidden;
+    scroll-snap-align: start;
+  }
+
+  .waterfall-thumb {
+    width: 280px;
+    height: 160px;
+    overflow: hidden;
+  }
+
+  .waterfall-thumb-placeholder {
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, var(--j-bg-section), var(--j-accent-slate));
+    opacity: 0.5;
+  }
+
+  .waterfall-thumb img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: saturate(0.85) contrast(1.05);
+  }
+
+  .waterfall-info {
+    padding: var(--j-space-sm);
+  }
+
+  .waterfall-name {
+    font-family: var(--j-font-heading);
+    font-size: var(--j-text-card);
+    font-weight: 600;
+    color: var(--j-text-primary);
+    margin: 0 0 var(--j-space-xs);
+    text-transform: none;
+    letter-spacing: normal;
+    line-height: 1.3;
+  }
+
+  .waterfall-stats {
+    font-family: var(--j-font-mono);
+    font-size: var(--j-text-caption);
+    color: var(--j-text-secondary);
+    margin: 0 0 var(--j-space-xs);
+  }
+
+  .waterfall-ratings {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    margin-bottom: var(--j-space-xs);
+  }
+
+  .waterfall-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.5em;
+    font-size: var(--j-text-caption);
+  }
+
+  .rating-label {
+    font-family: var(--j-font-mono);
+    color: var(--j-text-secondary);
+    min-width: 4em;
+    text-transform: uppercase;
+    font-size: 0.7rem;
+    letter-spacing: 0.05em;
+  }
+
+  .rating-dots {
+    color: var(--j-accent-gold);
+    letter-spacing: 0.1em;
+  }
+
+  .waterfall-detail {
+    font-size: var(--j-text-caption);
+    color: var(--j-text-secondary);
+    margin: 0;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 768px) {
+    .waterfall-card {
+      flex: 0 0 260px;
+    }
+
+    .waterfall-thumb {
+      width: 260px;
+    }
+  }
+</style>

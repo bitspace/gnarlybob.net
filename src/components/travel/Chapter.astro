@@ -1,0 +1,44 @@
+---
+import type { ImageMetadata } from 'astro';
+import ImageHero from './ImageHero.astro';
+
+interface Props {
+  id: string;
+  heroImage?: ImageMetadata;
+  heroAlt?: string;
+  heroCredit?: string;
+  heroLoading?: 'lazy' | 'eager';
+  isGeneratedImage?: boolean;
+  textAlign?: 'left' | 'center' | 'right';
+  class?: string;
+}
+
+const {
+  id,
+  heroImage,
+  heroAlt,
+  heroCredit,
+  heroLoading = 'lazy',
+  isGeneratedImage = false,
+  textAlign = 'left',
+  class: className
+} = Astro.props;
+---
+<section
+  class:list={['chapter', className]}
+  data-chapter={id}
+  id={id}
+>
+  {heroImage && (
+    <ImageHero
+      src={heroImage}
+      alt={heroAlt || ''}
+      credit={heroCredit}
+      loading={heroLoading}
+      isGenerated={isGeneratedImage}
+    />
+  )}
+  <div class:list={['chapter-content', `text-${textAlign}`]}>
+    <slot />
+  </div>
+</section>

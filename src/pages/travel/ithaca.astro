@@ -1,0 +1,112 @@
+---
+import type { ImageMetadata } from 'astro';
+import JourneyLayout from '../../layouts/JourneyLayout.astro';
+import Chapter from '../../components/travel/Chapter.astro';
+import WaterfallCard from '../../components/travel/WaterfallCard.astro';
+import RestaurantCard from '../../components/travel/RestaurantCard.astro';
+import BeforeAfter from '../../components/travel/BeforeAfter.astro';
+import chapters from '../../data/travel/ithaca-chapters.json';
+import waterfalls from '../../data/travel/ithaca-waterfalls.json';
+import restaurants from '../../data/travel/ithaca-restaurants.json';
+import credits from '../../data/travel/ithaca-credits.json';
+
+const imageModules = import.meta.glob<{ default: ImageMetadata }>(
+  '../../assets/travel/ithaca/*',
+  { eager: true }
+);
+
+function getImage(filename: string): ImageMetadata | undefined {
+  const key = Object.keys(imageModules).find((k) => k.endsWith(`/${filename}`));
+  return key ? imageModules[key].default : undefined;
+}
+---
+<JourneyLayout
+  title="Ithaca — gnarlybob"
+  description="A scroll-driven road trip story: Hooksett NH to the Finger Lakes and back."
+>
+  {chapters.map((ch) => (
+    <Chapter
+      id={ch.id}
+      heroImage={ch.heroImage ? getImage(ch.heroImage) : undefined}
+      heroAlt={ch.heroAlt ?? undefined}
+      heroCredit={ch.heroCredit ?? undefined}
+      heroLoading={ch.number === 1 ? 'eager' : 'lazy'}
+      isGeneratedImage={ch.isGeneratedImage}
+      textAlign={ch.textAlign as 'left' | 'center' | 'right'}
+      class={ch.number % 2 === 0 ? 'chapter--alt' : undefined}
+    >
+      <span class="chapter-number">Chapter {String(ch.number).padStart(2, '0')}</span>
+      <h1>{ch.title}</h1>
+      <Fragment set:html={ch.body} />
+
+      {ch.id === '215-feet' && (
+        <BeforeAfter
+          beforeSrc={getImage('taughannock-falls-gorge-view.jpg')}
+          afterSrc={getImage('taughannock-falls-gorge-flood.webp')}
+          beforeLabel="Dry July"
+          afterLabel="After Rain"
+          alt="Taughannock Falls in dry flow versus full flow after rainfall"
+        />
+      )}
+
+      {ch.id === 'field-guide' && (
+        <div class="waterfall-scroll">
+          {waterfalls.map((w) => (
+            <WaterfallCard
+              name={w.name}
+              height={w.height}
+              distance={w.distance}
+              photoRating={w.photoRating}
+              accessRating={w.accessRating}
+              detail={w.detail}
+              thumbnail={w.thumbnail}
+            />
+          ))}
+        </div>
+      )}
+
+      {ch.id === 'eat-fish' && (
+        <div class="restaurant-grid">
+          {restaurants.map((r) => (
+            <RestaurantCard
+              name={r.name}
+              cuisine={r.cuisine}
+              price={r.price}
+              take={r.take}
+            />
+          ))}
+        </div>
+      )}
+    </Chapter>
+  ))}
+
+  <section class="credits" aria-label="Image credits">
+    <div class="credits-content">
+      <h2 class="credits-heading">Image Credits</h2>
+      {credits.length > 0 ? (
+        <ul class="credits-list">
+          {credits.map((c) => (
+            <li class="credits-item">
+              <span class="credits-file">{c.file}</span>
+              {c.isGenerated ? (
+                <span class="credits-source">AI-generated</span>
+              ) : (
+                <span class="credits-source">
+                  {c.author} / {c.source} / {c.license}
+                </span>
+              )}
+            </li>
+          ))}
+        </ul>
+      ) : (
+        <p class="credits-placeholder">Image credits will be added as photography is sourced.</p>
+      )}
+    </div>
+  </section>
+</JourneyLayout>
+
+<style>
+  .chapter--alt {
+    background-color: var(--j-bg-section);
+  }
+</style>

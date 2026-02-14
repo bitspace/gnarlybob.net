@@ -1,0 +1,423 @@
+/* ===========================
+   0. Fraunces Font (self-hosted)
+   =========================== */
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/fraunces-latin-variable.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Fraunces';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/fraunces-latin-italic-variable.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ===========================
+   1. Journey Theme Variables
+   =========================== */
+.journey {
+  /* Backgrounds */
+  --j-bg-deep: #0f1114;
+  --j-bg-section: #1a2332;
+  --j-bg-card: #1e2a3a;
+
+  /* Text */
+  --j-text-primary: #f0ece4;
+  --j-text-secondary: #a8a090;
+  --j-text-accent: #c4956a;
+
+  /* Accents */
+  --j-accent-gold: #c4956a;
+  --j-accent-slate: #4a6670;
+  --j-accent-water: #5a8a9a;
+
+  /* Overlays */
+  --j-overlay-dark: rgba(15, 17, 20, 0.7);
+  --j-overlay-gradient: linear-gradient(
+    to bottom,
+    rgba(15, 17, 20, 0) 0%,
+    rgba(15, 17, 20, 0.4) 40%,
+    rgba(15, 17, 20, 0.85) 100%
+  );
+
+  /* Typography */
+  --j-font-heading: 'Fraunces', 'Playfair Display', Georgia, serif;
+  --j-font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --j-font-mono: 'JetBrains Mono', monospace;
+
+  /* Scale */
+  --j-text-hero: clamp(2.5rem, 6vw, 5rem);
+  --j-text-h1: clamp(2rem, 4vw, 3.5rem);
+  --j-text-h2: clamp(1.5rem, 3vw, 2rem);
+  --j-text-body: clamp(1rem, 1.2vw, 1.2rem);
+  --j-text-caption: clamp(0.8rem, 1vw, 0.9rem);
+  --j-text-card: clamp(0.85rem, 1vw, 1rem);
+
+  /* Spacing */
+  --j-line-height-body: 1.7;
+  --j-line-height-heading: 1.2;
+  --j-max-width-text: 680px;
+  --j-space-xs: 0.5rem;
+  --j-space-sm: 1rem;
+  --j-space-md: 2rem;
+  --j-space-lg: 4rem;
+}
+
+/* ===========================
+   2. Layout & Structure
+   =========================== */
+.journey {
+  background-color: var(--j-bg-deep);
+  color: var(--j-text-primary);
+  font-family: var(--j-font-body);
+  font-size: var(--j-text-body);
+  line-height: var(--j-line-height-body);
+}
+
+.journey-content {
+  position: relative;
+}
+
+/* Desktop: offset content for fixed sidebar */
+@media (min-width: 769px) {
+  .journey-content {
+    margin-left: 60px;
+  }
+}
+
+/* Mobile: offset content for fixed top bar */
+@media (max-width: 768px) {
+  .journey-content {
+    margin-top: 4px;
+  }
+}
+
+/* ===========================
+   3. Chapter Base Styles
+   =========================== */
+.chapter {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chapter-hero {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.chapter-hero picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.chapter-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.85) contrast(1.05);
+}
+
+.chapter-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--j-overlay-gradient);
+}
+
+.chapter-hero-credit {
+  position: absolute;
+  bottom: var(--j-space-xs);
+  right: var(--j-space-sm);
+  font-family: var(--j-font-mono);
+  font-size: var(--j-text-caption);
+  color: var(--j-text-secondary);
+  z-index: 2;
+  opacity: 0.7;
+}
+
+.chapter-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--j-max-width-text);
+  margin: 0 auto;
+  padding: var(--j-space-lg) var(--j-space-sm);
+}
+
+.chapter-content.text-center {
+  text-align: center;
+}
+
+.chapter-content.text-left {
+  text-align: left;
+}
+
+.chapter-content.text-right {
+  text-align: right;
+}
+
+.chapter-content h1,
+.chapter-content h2 {
+  font-family: var(--j-font-heading);
+  line-height: var(--j-line-height-heading);
+  color: var(--j-text-primary);
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.chapter-content h1 {
+  font-size: var(--j-text-hero);
+  margin-bottom: var(--j-space-sm);
+}
+
+.chapter-content h2 {
+  font-size: var(--j-text-h1);
+  margin-bottom: var(--j-space-sm);
+}
+
+.chapter-content h3 {
+  font-family: var(--j-font-heading);
+  font-size: var(--j-text-h2);
+  line-height: var(--j-line-height-heading);
+  color: var(--j-text-primary);
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.chapter-content p {
+  margin-bottom: var(--j-space-sm);
+  color: var(--j-text-primary);
+}
+
+.chapter-number {
+  font-family: var(--j-font-mono);
+  font-size: var(--j-text-caption);
+  color: var(--j-accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: var(--j-space-xs);
+}
+
+/* ===========================
+   4. Scroll Animations
+   =========================== */
+.chapter-content {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp ease-out forwards;
+  animation-timeline: view();
+  animation-range: entry 0% entry 30%;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ===========================
+   5. Cards (Waterfall + Restaurant)
+   =========================== */
+.waterfall-scroll {
+  display: flex;
+  gap: var(--j-space-sm);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: var(--j-space-sm) 0;
+  scrollbar-width: none;
+}
+
+.waterfall-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .waterfall-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: var(--j-accent-slate) transparent;
+  }
+
+  .waterfall-scroll::-webkit-scrollbar {
+    display: block;
+    height: 4px;
+  }
+
+  .waterfall-scroll::-webkit-scrollbar-thumb {
+    background: var(--j-accent-slate);
+    border-radius: 2px;
+  }
+}
+
+.restaurant-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--j-space-sm);
+  padding: var(--j-space-sm) 0;
+}
+
+@media (max-width: 768px) {
+  .restaurant-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ===========================
+   6. BeforeAfter Slider
+   =========================== */
+/* Component styles are scoped in BeforeAfter.astro */
+
+/* ===========================
+   7. Parallax (Desktop Only)
+   =========================== */
+@media (min-width: 769px) {
+  .chapter-hero img {
+    height: 120%;
+    animation: parallax linear;
+    animation-timeline: view();
+    animation-range: cover;
+  }
+
+  @keyframes parallax {
+    from { transform: translateY(-10%); }
+    to { transform: translateY(0%); }
+  }
+}
+
+@media (min-width: 769px) and (prefers-reduced-motion: reduce) {
+  .chapter-hero img {
+    height: 100%;
+    animation: none;
+    transform: none;
+  }
+}
+
+@supports not (animation-timeline: view()) {
+  .chapter-hero img {
+    height: 100%;
+  }
+}
+
+/* ===========================
+   8. Responsive Overrides
+   =========================== */
+@media (max-width: 768px) {
+  .chapter {
+    min-height: 100svh;
+  }
+
+  .chapter-content {
+    padding: var(--j-space-md) var(--j-space-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .chapter-content {
+    padding: var(--j-space-sm);
+  }
+}
+
+/* ===========================
+   9. Reduced Motion
+   =========================== */
+@media (prefers-reduced-motion: reduce) {
+  .chapter-content {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
+@supports not (animation-timeline: view()) {
+  .chapter-content {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* ===========================
+   10. AI Image Grain Overlay
+   =========================== */
+.chapter-hero--generated img {
+  filter: saturate(0.7) contrast(1.05);
+}
+
+.chapter-hero--generated::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  opacity: 0.04;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+  pointer-events: none;
+}
+
+/* ===========================
+   11. Credits Section
+   =========================== */
+.credits {
+  background: var(--j-bg-deep);
+  padding: var(--j-space-lg) var(--j-space-sm);
+  border-top: 1px solid var(--j-accent-slate);
+}
+
+.credits-content {
+  max-width: var(--j-max-width-text);
+  margin: 0 auto;
+}
+
+.credits-heading {
+  font-family: var(--j-font-mono);
+  font-size: var(--j-text-caption);
+  color: var(--j-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: var(--j-space-sm);
+}
+
+.credits-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.credits-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--j-space-sm);
+  padding: var(--j-space-xs) 0;
+  border-bottom: 1px solid rgba(74, 102, 112, 0.2);
+  font-size: var(--j-text-caption);
+}
+
+.credits-file {
+  font-family: var(--j-font-mono);
+  color: var(--j-text-primary);
+}
+
+.credits-source {
+  color: var(--j-text-secondary);
+  text-align: right;
+}
+
+.credits-placeholder {
+  font-size: var(--j-text-caption);
+  color: var(--j-text-secondary);
+  font-style: italic;
+}
