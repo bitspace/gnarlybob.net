@@ -17,7 +17,26 @@
       "Bash(npx astro check:*)",
       "Bash(bd list:*)",
       "Bash(bd create:*)",
-      "Bash(bd close:*)"
+      "Bash(bd close:*)",
+      "Bash(bd ready:*)",
+      "Bash(bd stats:*)",
+      "Bash(bd update:*)",
+      "Bash(curl:*)",
+      "Bash(unzip:*)",
+      "mcp__claude_ai_Hugging_Face__dynamic_space",
+      "mcp__claude_ai_Hugging_Face__space_search",
+      "Bash(bd show:*)",
+      "WebSearch",
+      "WebFetch(domain:commons.wikimedia.org)",
+      "Bash(python3:*)",
+      "Bash(done)",
+      "Bash(du:*)",
+      "Bash(pkill:*)",
+      "Bash(gh run list:*)",
+      "Bash(gh run watch:*)",
+      "Bash(git remote get-url:*)",
+      "Bash(ssh:*)",
+      "Bash(GIT_SSH_COMMAND=\"ssh -o ConnectTimeout=10 -p 443 -T\" git push:*)"
     ]
   }
 }
