@@ -38,16 +38,13 @@ function renderRating(value: number): string {
 
 <style>
   .waterfall-card {
-    flex: 0 0 280px;
     background: var(--j-bg-card);
     border: 1px solid var(--j-accent-slate);
     border-radius: 4px;
     overflow: hidden;
-    scroll-snap-align: start;
   }
 
   .waterfall-thumb {
-    width: 280px;
     height: 160px;
     overflow: hidden;
   }
@@ -123,13 +120,4 @@ function renderRating(value: number): string {
     line-height: 1.5;
   }
 
-  @media (max-width: 768px) {
-    .waterfall-card {
-      flex: 0 0 260px;
-    }
-
-    .waterfall-thumb {
-      width: 260px;
-    }
-  }
 </style>
