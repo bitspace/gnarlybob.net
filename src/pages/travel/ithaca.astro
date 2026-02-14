@@ -1,0 +1,32 @@
+---
+import JourneyLayout from '../../layouts/JourneyLayout.astro';
+import Chapter from '../../components/travel/Chapter.astro';
+---
+<JourneyLayout
+  title="Ithaca — gnarlybob"
+  description="A scroll-driven road trip story: Hooksett NH to the Finger Lakes and back."
+>
+  <Chapter id="she-said-waterfalls" textAlign="center">
+    <span class="chapter-number">Chapter 01</span>
+    <h1>She Said Waterfalls</h1>
+    <p>Placeholder — content coming in Phase 4.</p>
+  </Chapter>
+
+  <Chapter id="so-i-asked-six-robots" textAlign="center" class="chapter--alt">
+    <span class="chapter-number">Chapter 02</span>
+    <h1>So I Asked Six Robots</h1>
+    <p>Placeholder — content coming in Phase 4.</p>
+  </Chapter>
+
+  <Chapter id="280-miles-zero-interstate" textAlign="left">
+    <span class="chapter-number">Chapter 03</span>
+    <h1>280 Miles, Zero Interstate</h1>
+    <p>Placeholder — content coming in Phase 4.</p>
+  </Chapter>
+</JourneyLayout>
+
+<style>
+  .chapter--alt {
+    background-color: var(--j-bg-section);
+  }
+</style>

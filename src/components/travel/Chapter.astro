@@ -1,0 +1,27 @@
+---
+interface Props {
+  id: string;
+  heroImage?: string;
+  heroAlt?: string;
+  heroCredit?: string;
+  textAlign?: 'left' | 'center' | 'right';
+  class?: string;
+}
+
+const { id, heroImage, heroAlt, heroCredit, textAlign = 'left', class: className } = Astro.props;
+---
+<section
+  class:list={['chapter', className]}
+  data-chapter={id}
+  id={id}
+>
+  {heroImage && (
+    <div class="chapter-hero">
+      <img src={heroImage} alt={heroAlt || ''} loading="lazy" />
+      {heroCredit && <span class="chapter-hero-credit">{heroCredit}</span>}
+    </div>
+  )}
+  <div class:list={['chapter-content', `text-${textAlign}`]}>
+    <slot />
+  </div>
+</section>

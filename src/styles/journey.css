@@ -1,0 +1,220 @@
+/* ===========================
+   1. Journey Theme Variables
+   =========================== */
+.journey {
+  /* Backgrounds */
+  --j-bg-deep: #0f1114;
+  --j-bg-section: #1a2332;
+  --j-bg-card: #1e2a3a;
+
+  /* Text */
+  --j-text-primary: #f0ece4;
+  --j-text-secondary: #a8a090;
+  --j-text-accent: #c4956a;
+
+  /* Accents */
+  --j-accent-gold: #c4956a;
+  --j-accent-slate: #4a6670;
+  --j-accent-water: #5a8a9a;
+
+  /* Overlays */
+  --j-overlay-dark: rgba(15, 17, 20, 0.7);
+  --j-overlay-gradient: linear-gradient(
+    to bottom,
+    rgba(15, 17, 20, 0) 0%,
+    rgba(15, 17, 20, 0.4) 40%,
+    rgba(15, 17, 20, 0.85) 100%
+  );
+
+  /* Typography */
+  --j-font-heading: 'Fraunces', 'Playfair Display', Georgia, serif;
+  --j-font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --j-font-mono: 'JetBrains Mono', monospace;
+
+  /* Scale */
+  --j-text-hero: clamp(2.5rem, 6vw, 5rem);
+  --j-text-h1: clamp(2rem, 4vw, 3.5rem);
+  --j-text-h2: clamp(1.5rem, 3vw, 2rem);
+  --j-text-body: clamp(1rem, 1.2vw, 1.2rem);
+  --j-text-caption: clamp(0.8rem, 1vw, 0.9rem);
+  --j-text-card: clamp(0.85rem, 1vw, 1rem);
+
+  /* Spacing */
+  --j-line-height-body: 1.7;
+  --j-line-height-heading: 1.2;
+  --j-max-width-text: 680px;
+  --j-space-xs: 0.5rem;
+  --j-space-sm: 1rem;
+  --j-space-md: 2rem;
+  --j-space-lg: 4rem;
+}
+
+/* ===========================
+   2. Layout & Structure
+   =========================== */
+.journey {
+  background-color: var(--j-bg-deep);
+  color: var(--j-text-primary);
+  font-family: var(--j-font-body);
+  font-size: var(--j-text-body);
+  line-height: var(--j-line-height-body);
+}
+
+.journey-content {
+  position: relative;
+}
+
+/* ===========================
+   3. Chapter Base Styles
+   =========================== */
+.chapter {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.chapter-hero {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+}
+
+.chapter-hero img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(0.85) contrast(1.05);
+}
+
+.chapter-hero::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--j-overlay-gradient);
+}
+
+.chapter-hero-credit {
+  position: absolute;
+  bottom: var(--j-space-xs);
+  right: var(--j-space-sm);
+  font-family: var(--j-font-mono);
+  font-size: var(--j-text-caption);
+  color: var(--j-text-secondary);
+  z-index: 2;
+  opacity: 0.7;
+}
+
+.chapter-content {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  max-width: var(--j-max-width-text);
+  margin: 0 auto;
+  padding: var(--j-space-lg) var(--j-space-sm);
+}
+
+.chapter-content.text-center {
+  text-align: center;
+}
+
+.chapter-content.text-left {
+  text-align: left;
+}
+
+.chapter-content.text-right {
+  text-align: right;
+}
+
+.chapter-content h1,
+.chapter-content h2 {
+  font-family: var(--j-font-heading);
+  line-height: var(--j-line-height-heading);
+  color: var(--j-text-primary);
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.chapter-content h1 {
+  font-size: var(--j-text-hero);
+  margin-bottom: var(--j-space-sm);
+}
+
+.chapter-content h2 {
+  font-size: var(--j-text-h1);
+  margin-bottom: var(--j-space-sm);
+}
+
+.chapter-content h3 {
+  font-family: var(--j-font-heading);
+  font-size: var(--j-text-h2);
+  line-height: var(--j-line-height-heading);
+  color: var(--j-text-primary);
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.chapter-content p {
+  margin-bottom: var(--j-space-sm);
+  color: var(--j-text-primary);
+}
+
+.chapter-number {
+  font-family: var(--j-font-mono);
+  font-size: var(--j-text-caption);
+  color: var(--j-accent-gold);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: var(--j-space-xs);
+}
+
+/* ===========================
+   4. Scroll Animations
+   =========================== */
+/* Placeholder — animations added in Phase 2 and Phase 4 */
+
+/* ===========================
+   5. Cards (Waterfall + Restaurant)
+   =========================== */
+/* Placeholder — added in Phase 5 */
+
+/* ===========================
+   6. BeforeAfter Slider
+   =========================== */
+/* Placeholder — added in Phase 5 */
+
+/* ===========================
+   7. Responsive Overrides
+   =========================== */
+@media (max-width: 768px) {
+  .chapter {
+    min-height: 100svh;
+  }
+
+  .chapter-content {
+    padding: var(--j-space-md) var(--j-space-sm);
+  }
+}
+
+@media (max-width: 480px) {
+  .chapter-content {
+    padding: var(--j-space-sm);
+  }
+}
+
+/* ===========================
+   8. Reduced Motion
+   =========================== */
+@media (prefers-reduced-motion: reduce) {
+  /* Disable parallax */
+  /* Disable scroll animations — content visible immediately */
+  /* Route map fully drawn, no animation */
+  /* BeforeAfter slider still functional (not animation-dependent) */
+}
+
+/* ===========================
+   9. AI Image Grain Overlay
+   =========================== */
+/* Placeholder — added in Phase 3 */
