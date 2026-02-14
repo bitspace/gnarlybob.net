@@ -50,7 +50,7 @@ function getImage(filename: string): ImageMetadata | undefined {
       )}
 
       {ch.id === 'field-guide' && (
-        <div class="waterfall-scroll">
+        <div class="waterfall-grid">
           {waterfalls.map((w) => (
             <WaterfallCard
               name={w.name}
