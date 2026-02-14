@@ -117,6 +117,12 @@
   z-index: 0;
 }
 
+.chapter-hero picture {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
 .chapter-hero img {
   width: 100%;
   height: 100%;
@@ -275,7 +281,38 @@
 /* Component styles are scoped in BeforeAfter.astro */
 
 /* ===========================
-   7. Responsive Overrides
+   7. Parallax (Desktop Only)
+   =========================== */
+@media (min-width: 769px) {
+  .chapter-hero img {
+    height: 120%;
+    animation: parallax linear;
+    animation-timeline: view();
+    animation-range: cover;
+  }
+
+  @keyframes parallax {
+    from { transform: translateY(-10%); }
+    to { transform: translateY(0%); }
+  }
+}
+
+@media (min-width: 769px) and (prefers-reduced-motion: reduce) {
+  .chapter-hero img {
+    height: 100%;
+    animation: none;
+    transform: none;
+  }
+}
+
+@supports not (animation-timeline: view()) {
+  .chapter-hero img {
+    height: 100%;
+  }
+}
+
+/* ===========================
+   8. Responsive Overrides
    =========================== */
 @media (max-width: 768px) {
   .chapter {
@@ -294,7 +331,7 @@
 }
 
 /* ===========================
-   8. Reduced Motion
+   9. Reduced Motion
    =========================== */
 @media (prefers-reduced-motion: reduce) {
   .chapter-content {
@@ -312,7 +349,7 @@
 }
 
 /* ===========================
-   9. AI Image Grain Overlay
+   10. AI Image Grain Overlay
    =========================== */
 .chapter-hero--generated img {
   filter: saturate(0.7) contrast(1.05);
@@ -331,7 +368,7 @@
 }
 
 /* ===========================
-   10. Credits Section
+   11. Credits Section
    =========================== */
 .credits {
   background: var(--j-bg-deep);

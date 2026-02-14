@@ -1,4 +1,5 @@
 ---
+import type { ImageMetadata } from 'astro';
 import JourneyLayout from '../../layouts/JourneyLayout.astro';
 import Chapter from '../../components/travel/Chapter.astro';
 import WaterfallCard from '../../components/travel/WaterfallCard.astro';
@@ -8,6 +9,16 @@ import chapters from '../../data/travel/ithaca-chapters.json';
 import waterfalls from '../../data/travel/ithaca-waterfalls.json';
 import restaurants from '../../data/travel/ithaca-restaurants.json';
 import credits from '../../data/travel/ithaca-credits.json';
+
+const imageModules = import.meta.glob<{ default: ImageMetadata }>(
+  '../../assets/travel/ithaca/*',
+  { eager: true }
+);
+
+function getImage(filename: string): ImageMetadata | undefined {
+  const key = Object.keys(imageModules).find((k) => k.endsWith(`/${filename}`));
+  return key ? imageModules[key].default : undefined;
+}
 ---
 <JourneyLayout
   title="Ithaca — gnarlybob"
@@ -16,7 +27,7 @@ import credits from '../../data/travel/ithaca-credits.json';
   {chapters.map((ch) => (
     <Chapter
       id={ch.id}
-      heroImage={ch.heroImage ?? undefined}
+      heroImage={ch.heroImage ? getImage(ch.heroImage) : undefined}
       heroAlt={ch.heroAlt ?? undefined}
       heroCredit={ch.heroCredit ?? undefined}
       heroLoading={ch.number === 1 ? 'eager' : 'lazy'}
@@ -28,16 +39,16 @@ import credits from '../../data/travel/ithaca-credits.json';
       <h1>{ch.title}</h1>
       <Fragment set:html={ch.body} />
 
-      {/* Ch 6: BeforeAfter slider */}
       {ch.id === '215-feet' && (
         <BeforeAfter
+          beforeSrc={getImage('taughannock-falls-gorge-view.jpg')}
+          afterSrc={getImage('taughannock-falls-gorge-flood.webp')}
           beforeLabel="Dry July"
           afterLabel="After Rain"
           alt="Taughannock Falls in dry flow versus full flow after rainfall"
         />
       )}
 
-      {/* Ch 7: Waterfall field guide cards */}
       {ch.id === 'field-guide' && (
         <div class="waterfall-scroll">
           {waterfalls.map((w) => (
@@ -54,7 +65,6 @@ import credits from '../../data/travel/ithaca-credits.json';
         </div>
       )}
 
-      {/* Ch 10: Restaurant cards */}
       {ch.id === 'eat-fish' && (
         <div class="restaurant-grid">
           {restaurants.map((r) => (
