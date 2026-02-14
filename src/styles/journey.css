@@ -1,4 +1,25 @@
 /* ===========================
+   0. Fraunces Font (self-hosted)
+   =========================== */
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/fraunces-latin-variable.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Fraunces';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/fraunces-latin-italic-variable.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ===========================
    1. Journey Theme Variables
    =========================== */
 .journey {
@@ -187,7 +208,20 @@
 /* ===========================
    4. Scroll Animations
    =========================== */
-/* Placeholder — animations added in Phase 2 and Phase 4 */
+.chapter-content {
+  opacity: 0;
+  transform: translateY(30px);
+  animation: fadeInUp ease-out forwards;
+  animation-timeline: view();
+  animation-range: entry 0% entry 30%;
+}
+
+@keyframes fadeInUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 
 /* ===========================
    5. Cards (Waterfall + Restaurant)
@@ -222,10 +256,18 @@
    8. Reduced Motion
    =========================== */
 @media (prefers-reduced-motion: reduce) {
-  /* Disable parallax */
-  /* Disable scroll animations — content visible immediately */
-  /* Route map fully drawn, no animation */
-  /* BeforeAfter slider still functional (not animation-dependent) */
+  .chapter-content {
+    opacity: 1;
+    transform: none;
+    animation: none;
+  }
+}
+
+@supports not (animation-timeline: view()) {
+  .chapter-content {
+    opacity: 1;
+    transform: none;
+  }
 }
 
 /* ===========================

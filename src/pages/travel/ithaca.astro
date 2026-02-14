@@ -1,28 +1,26 @@
 ---
 import JourneyLayout from '../../layouts/JourneyLayout.astro';
 import Chapter from '../../components/travel/Chapter.astro';
+import chapters from '../../data/travel/ithaca-chapters.json';
 ---
 <JourneyLayout
   title="Ithaca — gnarlybob"
   description="A scroll-driven road trip story: Hooksett NH to the Finger Lakes and back."
 >
-  <Chapter id="she-said-waterfalls" textAlign="center">
-    <span class="chapter-number">Chapter 01</span>
-    <h1>She Said Waterfalls</h1>
-    <p>Placeholder — content coming in Phase 4.</p>
-  </Chapter>
-
-  <Chapter id="so-i-asked-six-robots" textAlign="center" class="chapter--alt">
-    <span class="chapter-number">Chapter 02</span>
-    <h1>So I Asked Six Robots</h1>
-    <p>Placeholder — content coming in Phase 4.</p>
-  </Chapter>
-
-  <Chapter id="280-miles-zero-interstate" textAlign="left">
-    <span class="chapter-number">Chapter 03</span>
-    <h1>280 Miles, Zero Interstate</h1>
-    <p>Placeholder — content coming in Phase 4.</p>
-  </Chapter>
+  {chapters.map((ch) => (
+    <Chapter
+      id={ch.id}
+      heroImage={ch.heroImage ?? undefined}
+      heroAlt={ch.heroAlt ?? undefined}
+      heroCredit={ch.heroCredit ?? undefined}
+      textAlign={ch.textAlign as 'left' | 'center' | 'right'}
+      class={ch.number % 2 === 0 ? 'chapter--alt' : undefined}
+    >
+      <span class="chapter-number">Chapter {String(ch.number).padStart(2, '0')}</span>
+      <h1>{ch.title}</h1>
+      <Fragment set:html={ch.body} />
+    </Chapter>
+  ))}
 </JourneyLayout>
 
 <style>
