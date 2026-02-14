@@ -2,6 +2,7 @@
 import BaseLayout from './BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import RouteMap from '../components/travel/RouteMap.astro';
 import '../styles/journey.css';
 
 interface Props {
@@ -15,6 +16,7 @@ const { title, description, ogImage } = Astro.props;
 <BaseLayout title={title} description={description}>
   <Header />
   <div class="journey">
+    <RouteMap />
     <main class="journey-content">
       <slot />
     </main>

@@ -1,0 +1,92 @@
+{
+  "pins": [
+    {
+      "id": "hooksett",
+      "label": "Hooksett, NH",
+      "chapter": "she-said-waterfalls",
+      "svgX": 720,
+      "svgY": 145,
+      "scrollPercent": 0
+    },
+    {
+      "id": "shelburne-falls",
+      "label": "Shelburne Falls",
+      "chapter": "bridge-of-flowers",
+      "svgX": 580,
+      "svgY": 235,
+      "scrollPercent": 25
+    },
+    {
+      "id": "hairpin-turn",
+      "label": "Hairpin Turn",
+      "chapter": "280-miles-zero-interstate",
+      "svgX": 490,
+      "svgY": 260,
+      "scrollPercent": 18
+    },
+    {
+      "id": "williamstown",
+      "label": "Williamstown",
+      "chapter": "280-miles-zero-interstate",
+      "svgX": 400,
+      "svgY": 252,
+      "scrollPercent": 22
+    },
+    {
+      "id": "ithaca",
+      "label": "Ithaca, NY",
+      "chapter": "home-base",
+      "svgX": 122,
+      "svgY": 418,
+      "scrollPercent": 38
+    },
+    {
+      "id": "taughannock",
+      "label": "Taughannock Falls",
+      "chapter": "215-feet",
+      "svgX": 108,
+      "svgY": 445,
+      "scrollPercent": 45
+    },
+    {
+      "id": "watkins-glen",
+      "label": "Watkins Glen",
+      "chapter": "field-guide",
+      "svgX": 95,
+      "svgY": 462,
+      "scrollPercent": 52
+    },
+    {
+      "id": "ganondagan",
+      "label": "Ganondagan",
+      "chapter": "here-first",
+      "svgX": 135,
+      "svgY": 425,
+      "scrollPercent": 60
+    },
+    {
+      "id": "corning",
+      "label": "Corning, NY",
+      "chapter": "sapsucker-woods",
+      "svgX": 92,
+      "svgY": 470,
+      "scrollPercent": 68
+    },
+    {
+      "id": "quechee",
+      "label": "Quechee Gorge",
+      "chapter": "vermont-long-way",
+      "svgX": 662,
+      "svgY": 158,
+      "scrollPercent": 82
+    },
+    {
+      "id": "woodstock",
+      "label": "Woodstock, VT",
+      "chapter": "vermont-long-way",
+      "svgX": 685,
+      "svgY": 142,
+      "scrollPercent": 86
+    }
+  ]
+}

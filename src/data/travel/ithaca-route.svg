@@ -1,0 +1,96 @@
+<svg viewBox="0 0 800 600" xmlns="http://www.w3.org/2000/svg">
+  <!-- Route path: Hooksett NH → MA-2 (Mohawk Trail) → Ithaca NY → Vermont → Hooksett NH -->
+  <!-- Outbound: East to West across MA, then northwest into NY -->
+  <!-- Return: East through VT, south to NH -->
+
+  <!-- Outbound route -->
+  <path id="route-outbound" class="route-path"
+    d="M 720,145
+       C 700,155 680,170 660,185
+       C 640,200 610,220 580,235
+       C 550,250 520,258 490,260
+       C 460,262 430,258 400,252
+       C 370,246 340,238 310,235
+       C 280,232 260,235 240,242
+       C 220,249 200,260 180,275
+       C 160,290 145,308 135,328
+       C 125,348 120,365 118,380
+       C 116,395 118,408 122,418"
+    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Ithaca local area (small loop around Finger Lakes) -->
+  <path id="route-local" class="route-path"
+    d="M 122,418
+       C 118,430 112,438 108,445
+       C 104,452 98,458 95,462
+       C 92,466 90,468 92,470
+       C 94,472 100,470 108,465
+       C 116,460 125,452 130,445
+       C 135,438 138,430 135,425
+       C 132,420 128,418 122,418"
+    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Return route: Ithaca → across NY → VT → NH -->
+  <path id="route-return" class="route-path"
+    d="M 122,418
+       C 130,410 145,398 165,385
+       C 185,372 210,358 240,345
+       C 270,332 305,320 340,310
+       C 375,300 410,292 445,282
+       C 480,272 510,260 540,245
+       C 570,230 595,215 615,198
+       C 635,181 650,168 662,158
+       C 674,148 685,142 695,140
+       C 705,138 712,140 718,144
+       C 722,146 722,147 720,145"
+    fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+
+  <!-- Pin markers -->
+  <!-- 1. Hooksett, NH (start/end) -->
+  <circle class="pin" data-chapter="she-said-waterfalls" cx="720" cy="145" r="4" />
+
+  <!-- 2. Shelburne Falls, MA (Bridge of Flowers) -->
+  <circle class="pin" data-chapter="bridge-of-flowers" cx="580" cy="235" r="4" />
+
+  <!-- 3. Hairpin Turn, MA -->
+  <circle class="pin" data-chapter="280-miles-zero-interstate" cx="490" cy="260" r="4" />
+
+  <!-- 4. Williamstown, MA -->
+  <circle class="pin" data-chapter="280-miles-zero-interstate" cx="400" cy="252" r="4" />
+
+  <!-- 5. Ithaca, NY (home base) -->
+  <circle class="pin pin--major" data-chapter="home-base" cx="122" cy="418" r="5" />
+
+  <!-- 6. Taughannock Falls -->
+  <circle class="pin" data-chapter="215-feet" cx="108" cy="445" r="4" />
+
+  <!-- 7. Watkins Glen -->
+  <circle class="pin" data-chapter="field-guide" cx="95" cy="462" r="4" />
+
+  <!-- 8. Ganondagan (Victor, NY) -->
+  <circle class="pin" data-chapter="here-first" cx="135" cy="425" r="4" />
+
+  <!-- 9. Corning, NY -->
+  <circle class="pin" data-chapter="sapsucker-woods" cx="92" cy="470" r="4" />
+
+  <!-- 10. Quechee Gorge, VT (return) -->
+  <circle class="pin" data-chapter="vermont-long-way" cx="662" cy="158" r="4" />
+
+  <!-- 11. Woodstock, VT -->
+  <circle class="pin" data-chapter="vermont-long-way" cx="685" cy="142" r="4" />
+
+  <!-- Pin labels (hidden by default, shown on hover/tap) -->
+  <g class="pin-labels">
+    <text class="pin-label" x="720" y="132" text-anchor="middle">Hooksett, NH</text>
+    <text class="pin-label" x="580" y="222" text-anchor="middle">Shelburne Falls</text>
+    <text class="pin-label" x="490" y="247" text-anchor="middle">Hairpin Turn</text>
+    <text class="pin-label" x="400" y="239" text-anchor="middle">Williamstown</text>
+    <text class="pin-label" x="122" y="405" text-anchor="middle">Ithaca</text>
+    <text class="pin-label" x="108" y="432" text-anchor="end">Taughannock</text>
+    <text class="pin-label" x="80" y="462" text-anchor="end">Watkins Glen</text>
+    <text class="pin-label" x="150" y="422" text-anchor="start">Ganondagan</text>
+    <text class="pin-label" x="78" y="474" text-anchor="end">Corning</text>
+    <text class="pin-label" x="662" y="145" text-anchor="middle">Quechee Gorge</text>
+    <text class="pin-label" x="685" y="132" text-anchor="middle">Woodstock</text>
+  </g>
+</svg>

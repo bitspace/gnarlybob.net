@@ -64,6 +64,20 @@
   position: relative;
 }
 
+/* Desktop: offset content for fixed sidebar */
+@media (min-width: 769px) {
+  .journey-content {
+    margin-left: 60px;
+  }
+}
+
+/* Mobile: offset content for fixed top bar */
+@media (max-width: 768px) {
+  .journey-content {
+    margin-top: 4px;
+  }
+}
+
 /* ===========================
    3. Chapter Base Styles
    =========================== */
