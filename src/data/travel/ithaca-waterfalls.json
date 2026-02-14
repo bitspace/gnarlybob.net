@@ -1,0 +1,92 @@
+[
+  {
+    "name": "Taughannock Falls",
+    "height": "215 ft",
+    "distance": "0.75 mi flat trail",
+    "photoRating": 5,
+    "accessRating": 5,
+    "detail": "Taller than Niagara. Flat gravel trail. Your back says yes.",
+    "thumbnail": "/images/travel/ithaca/taughannock-thumb.webp"
+  },
+  {
+    "name": "Ithaca Falls",
+    "height": "150 ft",
+    "distance": "Street-side viewpoint",
+    "photoRating": 5,
+    "accessRating": 5,
+    "detail": "Walk to the end of a residential street. Turn around. 150 feet of water.",
+    "thumbnail": "/images/travel/ithaca/ithaca-falls-thumb.webp"
+  },
+  {
+    "name": "Buttermilk Falls",
+    "height": "165 ft cascade",
+    "distance": "0.2 mi to base pool",
+    "photoRating": 4,
+    "accessRating": 4,
+    "detail": "Swimming hole at the base. The cascade is the photo, the pool is the reward.",
+    "thumbnail": "/images/travel/ithaca/buttermilk-thumb.webp"
+  },
+  {
+    "name": "Eagle Cliff Falls",
+    "height": "40 ft",
+    "distance": "0.3 mi gentle grade",
+    "photoRating": 4,
+    "accessRating": 4,
+    "detail": "You can walk behind it. Behind it. Do I need to say more.",
+    "thumbnail": "/images/travel/ithaca/eagle-cliff-thumb.webp"
+  },
+  {
+    "name": "Lucifer Falls",
+    "height": "115 ft cascade",
+    "distance": "1.8 mi moderate trail",
+    "photoRating": 5,
+    "accessRating": 2,
+    "detail": "Best viewed from the stone staircase above. The name is accurate about the climb.",
+    "thumbnail": "/images/travel/ithaca/lucifer-thumb.webp"
+  },
+  {
+    "name": "Seneca Mills Falls",
+    "height": "25 ft",
+    "distance": "Roadside",
+    "photoRating": 3,
+    "accessRating": 5,
+    "detail": "Pull over, walk ten feet, done. The laziest waterfall on the list.",
+    "thumbnail": "/images/travel/ithaca/seneca-mills-thumb.webp"
+  },
+  {
+    "name": "Watkins Glen Gorge",
+    "height": "200 ft over 2 mi",
+    "distance": "2 mi gorge trail",
+    "photoRating": 5,
+    "accessRating": 2,
+    "detail": "800 steps. 19 waterfalls. Not a back-friendly trail, but the photos are unreal.",
+    "thumbnail": "/images/travel/ithaca/watkins-glen-thumb.webp"
+  },
+  {
+    "name": "Carpenter Falls",
+    "height": "90 ft",
+    "distance": "0.5 mi wooded trail",
+    "photoRating": 4,
+    "accessRating": 3,
+    "detail": "Remote. No crowds. The kind of waterfall you have to yourself.",
+    "thumbnail": "/images/travel/ithaca/carpenter-thumb.webp"
+  },
+  {
+    "name": "Shequaga Falls",
+    "height": "156 ft",
+    "distance": "Street-side viewpoint",
+    "photoRating": 4,
+    "accessRating": 5,
+    "detail": "Right in Montour Falls village. You can see it from the Dollar General parking lot.",
+    "thumbnail": "/images/travel/ithaca/shequaga-thumb.webp"
+  },
+  {
+    "name": "Cowsheds Falls",
+    "height": "30 ft",
+    "distance": "0.4 mi easy trail",
+    "photoRating": 3,
+    "accessRating": 4,
+    "detail": "Inside Fillmore Glen. A rock overhang that looks like it was designed by a set decorator.",
+    "thumbnail": "/images/travel/ithaca/cowsheds-thumb.webp"
+  }
+]

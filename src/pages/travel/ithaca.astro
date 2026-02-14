@@ -1,7 +1,15 @@
 ---
 import JourneyLayout from '../../layouts/JourneyLayout.astro';
 import Chapter from '../../components/travel/Chapter.astro';
+import WaterfallCard from '../../components/travel/WaterfallCard.astro';
+import RestaurantCard from '../../components/travel/RestaurantCard.astro';
+import BeforeAfter from '../../components/travel/BeforeAfter.astro';
 import chapters from '../../data/travel/ithaca-chapters.json';
+import waterfalls from '../../data/travel/ithaca-waterfalls.json';
+import restaurants from '../../data/travel/ithaca-restaurants.json';
+
+// Chapters that get special content injected after their body text
+const specialChapters = new Set(['215-feet', 'field-guide', 'eat-fish']);
 ---
 <JourneyLayout
   title="Ithaca — gnarlybob"
@@ -19,6 +27,46 @@ import chapters from '../../data/travel/ithaca-chapters.json';
       <span class="chapter-number">Chapter {String(ch.number).padStart(2, '0')}</span>
       <h1>{ch.title}</h1>
       <Fragment set:html={ch.body} />
+
+      {/* Ch 6: BeforeAfter slider */}
+      {ch.id === '215-feet' && (
+        <BeforeAfter
+          beforeLabel="Dry July"
+          afterLabel="After Rain"
+          alt="Taughannock Falls in dry flow versus full flow after rainfall"
+        />
+      )}
+
+      {/* Ch 7: Waterfall field guide cards */}
+      {ch.id === 'field-guide' && (
+        <div class="waterfall-scroll">
+          {waterfalls.map((w) => (
+            <WaterfallCard
+              name={w.name}
+              height={w.height}
+              distance={w.distance}
+              photoRating={w.photoRating}
+              accessRating={w.accessRating}
+              detail={w.detail}
+              thumbnail={w.thumbnail}
+            />
+          ))}
+        </div>
+      )}
+
+      {/* Ch 10: Restaurant cards */}
+      {ch.id === 'eat-fish' && (
+        <div class="restaurant-grid">
+          {restaurants.map((r) => (
+            <RestaurantCard
+              name={r.name}
+              cuisine={r.cuisine}
+              price={r.price}
+              take={r.take}
+            />
+          ))}
+        </div>
+      )}
     </Chapter>
   ))}
 </JourneyLayout>

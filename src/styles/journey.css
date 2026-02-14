@@ -226,12 +226,53 @@
 /* ===========================
    5. Cards (Waterfall + Restaurant)
    =========================== */
-/* Placeholder — added in Phase 5 */
+.waterfall-scroll {
+  display: flex;
+  gap: var(--j-space-sm);
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  padding: var(--j-space-sm) 0;
+  scrollbar-width: none;
+}
+
+.waterfall-scroll::-webkit-scrollbar {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .waterfall-scroll {
+    scrollbar-width: thin;
+    scrollbar-color: var(--j-accent-slate) transparent;
+  }
+
+  .waterfall-scroll::-webkit-scrollbar {
+    display: block;
+    height: 4px;
+  }
+
+  .waterfall-scroll::-webkit-scrollbar-thumb {
+    background: var(--j-accent-slate);
+    border-radius: 2px;
+  }
+}
+
+.restaurant-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: var(--j-space-sm);
+  padding: var(--j-space-sm) 0;
+}
+
+@media (max-width: 768px) {
+  .restaurant-grid {
+    grid-template-columns: 1fr;
+  }
+}
 
 /* ===========================
    6. BeforeAfter Slider
    =========================== */
-/* Placeholder — added in Phase 5 */
+/* Component styles are scoped in BeforeAfter.astro */
 
 /* ===========================
    7. Responsive Overrides
