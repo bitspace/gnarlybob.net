@@ -1,0 +1,27 @@
+---
+import { getCollection, render } from 'astro:content';
+import ResearchLayout from '../../../layouts/ResearchLayout.astro';
+
+export async function getStaticPaths() {
+	const entries = await getCollection('travelResearch');
+	return entries
+		.filter((entry) => entry.data.type === 'consensus')
+		.map((entry) => ({
+			params: { slug: entry.data.slug },
+			props: { entry },
+		}));
+}
+
+const { entry } = Astro.props;
+const { Content, headings } = await render(entry);
+---
+
+<ResearchLayout
+	title={entry.data.title}
+	description={entry.data.description ?? ''}
+	destination={entry.data.destination}
+	backLink="/travel/summer-2026/"
+	headings={headings.filter((h) => h.depth <= 3)}
+>
+	<Content />
+</ResearchLayout>

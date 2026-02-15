@@ -1,0 +1,49 @@
+---
+interface Props {
+  tier: number;
+  class?: string;
+}
+
+const { tier, class: className } = Astro.props;
+
+const labels: Record<number, string> = {
+  1: 'Tier 1 — Contender',
+  2: 'Tier 2 — Strong',
+  3: 'Tier 3 — Qualified',
+};
+---
+<span class:list={['tier-badge', `tier-${tier}`, className]} aria-label={labels[tier]}>
+  {labels[tier] ?? `Tier ${tier}`}
+</span>
+
+<style>
+  .tier-badge {
+    display: inline-block;
+    font-family: var(--r-font-mono, var(--font-mono));
+    font-size: var(--r-text-caption, 0.75rem);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 0.2em 0.6em;
+    border-radius: 2px;
+    border: 1px solid;
+  }
+
+  .tier-1 {
+    color: var(--r-tier-1, #c4956a);
+    border-color: var(--r-tier-1, #c4956a);
+    background: rgba(196, 149, 106, 0.1);
+  }
+
+  .tier-2 {
+    color: var(--r-tier-2, #6a9e7e);
+    border-color: var(--r-tier-2, #6a9e7e);
+    background: rgba(106, 158, 126, 0.1);
+  }
+
+  .tier-3 {
+    color: var(--r-tier-3, #6b8aad);
+    border-color: var(--r-tier-3, #6b8aad);
+    background: rgba(107, 138, 173, 0.1);
+  }
+</style>

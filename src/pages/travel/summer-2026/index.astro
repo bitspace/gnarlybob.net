@@ -1,0 +1,57 @@
+---
+import { getCollection, render } from 'astro:content';
+import ResearchLayout from '../../../layouts/ResearchLayout.astro';
+import DestinationCard from '../../../components/travel/DestinationCard.astro';
+
+const entries = await getCollection('travelResearch');
+const comparison = entries.find((e) => e.data.type === 'comparison');
+const destinations = entries
+	.filter((e) => e.data.type === 'consensus')
+	.sort((a, b) => (b.data.compositeScore ?? 0) - (a.data.compositeScore ?? 0));
+
+let ComparisonContent;
+let comparisonHeadings: { slug: string; text: string; depth: number }[] = [];
+if (comparison) {
+	const rendered = await render(comparison);
+	ComparisonContent = rendered.Content;
+	comparisonHeadings = rendered.headings;
+}
+---
+
+<ResearchLayout
+	title="Summer 2026 — Destination Research"
+	description="Six destinations ranked by a panel of AI models. Multi-source consensus reports for each."
+	backLink="/travel/"
+	headings={comparisonHeadings.filter((h) => h.depth <= 3)}
+>
+	<section class="destination-grid" aria-label="Destinations ranked by composite score">
+		{destinations.map((dest, i) => (
+			<DestinationCard
+				destination={dest.data.destination}
+				slug={dest.data.slug}
+				compositeScore={dest.data.compositeScore ?? 0}
+				tier={dest.data.tier ?? 3}
+				modelsCount={dest.data.modelsCount ?? 0}
+				description={dest.data.description ?? ''}
+				rank={i + 1}
+				href={dest.data.slug === 'ithaca'
+					? '/travel/ithaca/'
+					: `/travel/summer-2026/${dest.data.slug}/`}
+			/>
+		))}
+	</section>
+
+	{ComparisonContent && (
+		<hr />
+		<ComparisonContent />
+	)}
+</ResearchLayout>
+
+<style>
+	.destination-grid {
+		display: flex;
+		flex-direction: column;
+		gap: var(--r-space-sm, 1rem);
+		margin-bottom: var(--r-space-lg, 3rem);
+	}
+</style>

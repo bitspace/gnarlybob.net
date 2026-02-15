@@ -1,0 +1,699 @@
+/* ===========================
+   0. Fraunces Font (self-hosted)
+   =========================== */
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/fraunces-latin-variable.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+@font-face {
+  font-family: 'Fraunces';
+  font-style: italic;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url('/fonts/fraunces-latin-italic-variable.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+/* ===========================
+   1. Research Theme Variables
+   =========================== */
+.research {
+  /* Backgrounds */
+  --r-bg-deep: #0d1117;
+  --r-bg-surface: #161b22;
+  --r-bg-card: #1c2333;
+  --r-bg-table-row: rgba(22, 27, 34, 0.5);
+  --r-bg-table-alt: rgba(28, 35, 51, 0.4);
+  --r-bg-callout: rgba(196, 149, 106, 0.06);
+
+  /* Text */
+  --r-text-primary: #e6e1d8;
+  --r-text-secondary: #9b978f;
+  --r-text-heading: #f0ece4;
+  --r-text-data: #b8d4e3;
+
+  /* Accents */
+  --r-accent-warm: #c4956a;
+  --r-accent-copper: #b87a4b;
+  --r-accent-sage: #6a9e7e;
+  --r-accent-slate: #5a7d8a;
+  --r-accent-muted-blue: #6b8aad;
+
+  /* Borders */
+  --r-border-subtle: rgba(90, 125, 138, 0.2);
+  --r-border-heading: rgba(196, 149, 106, 0.3);
+  --r-border-table: rgba(90, 125, 138, 0.15);
+
+  /* Tier colors */
+  --r-tier-1: #c4956a;
+  --r-tier-2: #6a9e7e;
+  --r-tier-3: #6b8aad;
+
+  /* Typography */
+  --r-font-heading: 'Fraunces', Georgia, serif;
+  --r-font-body: 'Inter', system-ui, -apple-system, sans-serif;
+  --r-font-mono: 'JetBrains Mono', monospace;
+
+  /* Type scale (responsive) */
+  --r-text-title: clamp(2rem, 4vw, 2.75rem);
+  --r-text-h2: clamp(1.5rem, 2.5vw, 1.875rem);
+  --r-text-h3: clamp(1.2rem, 2vw, 1.4rem);
+  --r-text-h4: clamp(1rem, 1.5vw, 1.15rem);
+  --r-text-body: clamp(0.975rem, 1.15vw, 1.0625rem);
+  --r-text-small: clamp(0.8rem, 1vw, 0.875rem);
+  --r-text-caption: clamp(0.7rem, 0.9vw, 0.8rem);
+
+  /* Spacing */
+  --r-line-height-body: 1.75;
+  --r-line-height-heading: 1.2;
+  --r-max-width-content: 860px;
+  --r-max-width-wide: 960px;
+  --r-space-xs: 0.5rem;
+  --r-space-sm: 1rem;
+  --r-space-md: 2rem;
+  --r-space-lg: 3rem;
+  --r-space-xl: 4rem;
+
+  /* Layout */
+  --r-sidebar-width: 240px;
+  --r-sidebar-gap: 3rem;
+}
+
+/* ===========================
+   2. Page Foundation
+   =========================== */
+.research {
+  background-color: var(--r-bg-deep);
+  color: var(--r-text-primary);
+  font-family: var(--r-font-body);
+  font-size: var(--r-text-body);
+  line-height: var(--r-line-height-body);
+  scroll-behavior: smooth;
+}
+
+/* ===========================
+   3. Layout Structure
+   =========================== */
+.research-layout {
+  display: flex;
+  max-width: calc(var(--r-max-width-content) + var(--r-sidebar-width) + var(--r-sidebar-gap));
+  margin: 0 auto;
+  padding: 0 var(--r-space-md);
+  gap: var(--r-sidebar-gap);
+}
+
+.research-main {
+  flex: 1;
+  min-width: 0;
+  max-width: var(--r-max-width-content);
+  padding-top: calc(var(--r-space-xl) + 60px); /* Header offset */
+  padding-bottom: var(--r-space-xl);
+}
+
+/* ===========================
+   4. Table of Contents Sidebar
+   =========================== */
+.research-toc {
+  flex-shrink: 0;
+  width: var(--r-sidebar-width);
+  position: sticky;
+  top: calc(60px + var(--r-space-md));
+  align-self: flex-start;
+  max-height: calc(100vh - 60px - var(--r-space-lg));
+  overflow-y: auto;
+  padding-top: calc(var(--r-space-xl) + 60px);
+  padding-bottom: var(--r-space-md);
+
+  /* Subtle scrollbar */
+  scrollbar-width: thin;
+  scrollbar-color: var(--r-border-subtle) transparent;
+}
+
+.research-toc::-webkit-scrollbar {
+  width: 4px;
+}
+
+.research-toc::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.research-toc::-webkit-scrollbar-thumb {
+  background: var(--r-border-subtle);
+  border-radius: 2px;
+}
+
+.research-toc-label {
+  font-family: var(--r-font-mono);
+  font-size: var(--r-text-caption);
+  color: var(--r-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: var(--r-space-sm);
+  display: block;
+}
+
+.research-toc-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.research-toc-list li {
+  margin-bottom: 2px;
+}
+
+.research-toc-list a {
+  display: block;
+  font-size: var(--r-text-small);
+  color: var(--r-text-secondary);
+  padding: 4px 0 4px var(--r-space-sm);
+  border-left: 2px solid transparent;
+  text-decoration: none;
+  transition: color 0.2s ease, border-color 0.2s ease;
+  line-height: 1.4;
+}
+
+.research-toc-list a:hover {
+  color: var(--r-text-primary);
+  border-left-color: var(--r-accent-warm);
+}
+
+/* Indent h3 links */
+.research-toc-list .toc-h3 a {
+  padding-left: calc(var(--r-space-sm) + 0.75rem);
+  font-size: var(--r-text-caption);
+}
+
+/* ===========================
+   5. Back Link & Page Header
+   =========================== */
+.research-back {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+  font-family: var(--r-font-mono);
+  font-size: var(--r-text-caption);
+  color: var(--r-text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  text-decoration: none;
+  margin-bottom: var(--r-space-md);
+  transition: color 0.2s ease;
+}
+
+.research-back:hover {
+  color: var(--r-accent-warm);
+}
+
+.research-header {
+  margin-bottom: var(--r-space-lg);
+  padding-bottom: var(--r-space-md);
+  border-bottom: 1px solid var(--r-border-heading);
+}
+
+.research-destination {
+  display: inline-block;
+  font-family: var(--r-font-mono);
+  font-size: var(--r-text-caption);
+  color: var(--r-accent-warm);
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  margin-bottom: var(--r-space-xs);
+}
+
+.research-title {
+  font-family: var(--r-font-heading);
+  font-size: var(--r-text-title);
+  line-height: var(--r-line-height-heading);
+  color: var(--r-text-heading);
+  text-transform: none;
+  letter-spacing: normal;
+  margin-bottom: var(--r-space-xs);
+  text-wrap: balance;
+}
+
+.research-description {
+  font-size: var(--r-text-body);
+  color: var(--r-text-secondary);
+  line-height: 1.6;
+  margin: 0;
+  max-width: 640px;
+}
+
+/* ===========================
+   6. Prose — Rendered Markdown
+   =========================== */
+.prose {
+  line-height: var(--r-line-height-body);
+  color: var(--r-text-primary);
+}
+
+/* --- Headings --- */
+.prose h2 {
+  font-family: var(--r-font-heading);
+  font-size: var(--r-text-h2);
+  line-height: var(--r-line-height-heading);
+  color: var(--r-text-heading);
+  text-transform: none;
+  letter-spacing: normal;
+  margin-top: var(--r-space-xl);
+  margin-bottom: var(--r-space-sm);
+  padding-bottom: var(--r-space-xs);
+  border-bottom: 1px solid var(--r-border-heading);
+  text-wrap: balance;
+  scroll-margin-top: calc(60px + var(--r-space-md));
+}
+
+.prose h3 {
+  font-family: var(--r-font-heading);
+  font-size: var(--r-text-h3);
+  line-height: var(--r-line-height-heading);
+  color: var(--r-text-heading);
+  text-transform: none;
+  letter-spacing: normal;
+  margin-top: var(--r-space-lg);
+  margin-bottom: var(--r-space-xs);
+  scroll-margin-top: calc(60px + var(--r-space-md));
+}
+
+.prose h4 {
+  font-family: var(--r-font-body);
+  font-size: var(--r-text-h4);
+  font-weight: 600;
+  color: var(--r-text-heading);
+  text-transform: none;
+  letter-spacing: normal;
+  margin-top: var(--r-space-md);
+  margin-bottom: var(--r-space-xs);
+  scroll-margin-top: calc(60px + var(--r-space-md));
+}
+
+/* --- Body text --- */
+.prose p {
+  margin-bottom: var(--r-space-sm);
+  text-wrap: pretty;
+}
+
+.prose a {
+  color: var(--r-accent-slate);
+  text-decoration: underline;
+  text-decoration-color: rgba(90, 125, 138, 0.4);
+  text-underline-offset: 2px;
+  transition: color 0.2s ease, text-decoration-color 0.2s ease;
+}
+
+.prose a:hover {
+  color: var(--r-accent-warm);
+  text-decoration-color: var(--r-accent-warm);
+}
+
+.prose strong {
+  color: var(--r-text-heading);
+  font-weight: 600;
+}
+
+.prose em {
+  font-style: italic;
+  color: var(--r-text-primary);
+}
+
+/* --- Inline code --- */
+.prose code {
+  font-family: var(--r-font-mono);
+  font-size: 0.875em;
+  background: var(--r-bg-surface);
+  border: 1px solid var(--r-border-subtle);
+  padding: 0.1em 0.35em;
+  border-radius: 3px;
+  color: var(--r-text-data);
+}
+
+/* --- Code blocks --- */
+.prose pre {
+  background: var(--r-bg-surface);
+  border: 1px solid var(--r-border-subtle);
+  border-radius: 4px;
+  padding: var(--r-space-sm);
+  overflow-x: auto;
+  margin-bottom: var(--r-space-sm);
+}
+
+.prose pre code {
+  background: none;
+  border: none;
+  padding: 0;
+  font-size: var(--r-text-small);
+  color: var(--r-text-primary);
+}
+
+/* --- Blockquotes (editorial callouts) --- */
+.prose blockquote {
+  margin: var(--r-space-md) 0;
+  padding: var(--r-space-sm) var(--r-space-md);
+  background: var(--r-bg-callout);
+  border-left: 3px solid var(--r-accent-warm);
+  border-radius: 0 4px 4px 0;
+  position: relative;
+}
+
+.prose blockquote::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  border: 1px solid rgba(196, 149, 106, 0.1);
+  border-left: none;
+  border-radius: 0 4px 4px 0;
+  pointer-events: none;
+}
+
+.prose blockquote p {
+  margin-bottom: var(--r-space-xs);
+  color: var(--r-text-primary);
+  font-style: normal;
+}
+
+.prose blockquote p:last-child {
+  margin-bottom: 0;
+}
+
+.prose blockquote strong {
+  color: var(--r-accent-warm);
+}
+
+/* --- Lists --- */
+.prose ul,
+.prose ol {
+  margin-bottom: var(--r-space-sm);
+  padding-left: 1.5em;
+}
+
+.prose li {
+  margin-bottom: var(--r-space-xs);
+}
+
+.prose li::marker {
+  color: var(--r-accent-slate);
+}
+
+/* Nested lists */
+.prose ul ul,
+.prose ol ol,
+.prose ul ol,
+.prose ol ul {
+  margin-top: var(--r-space-xs);
+  margin-bottom: 0;
+}
+
+.prose li > ul,
+.prose li > ol {
+  padding-left: 1.25em;
+}
+
+/* --- Horizontal rule --- */
+.prose hr {
+  border: none;
+  border-top: 1px solid var(--r-border-heading);
+  margin: var(--r-space-lg) 0;
+}
+
+/* --- Images --- */
+.prose img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 4px;
+  border: 1px solid var(--r-border-subtle);
+}
+
+/* ===========================
+   7. Tables
+   =========================== */
+
+/* Scrollable wrapper for mobile */
+.prose .table-wrap {
+  overflow-x: auto;
+  margin-bottom: var(--r-space-md);
+  border: 1px solid var(--r-border-table);
+  border-radius: 4px;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Direct table without wrapper */
+.prose table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--r-space-md);
+  font-size: var(--r-text-small);
+  border: 1px solid var(--r-border-table);
+  border-radius: 4px;
+}
+
+.prose .table-wrap table {
+  margin-bottom: 0;
+  border: none;
+  border-radius: 0;
+}
+
+/* Header */
+.prose thead {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.prose th {
+  background: var(--r-bg-surface);
+  font-family: var(--r-font-mono);
+  font-size: var(--r-text-caption);
+  font-weight: 600;
+  color: var(--r-text-heading);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  text-align: left;
+  padding: 0.75rem 1rem;
+  border-bottom: 2px solid var(--r-border-heading);
+  white-space: nowrap;
+}
+
+/* Body cells */
+.prose td {
+  padding: 0.625rem 1rem;
+  border-bottom: 1px solid var(--r-border-table);
+  vertical-align: top;
+  color: var(--r-text-primary);
+}
+
+/* Alternating rows */
+.prose tbody tr:nth-child(even) {
+  background: var(--r-bg-table-alt);
+}
+
+.prose tbody tr:nth-child(odd) {
+  background: var(--r-bg-table-row);
+}
+
+/* Hover */
+.prose tbody tr:hover {
+  background: rgba(196, 149, 106, 0.06);
+}
+
+/* Monospace numbers in table cells */
+.prose td:first-child {
+  font-weight: 500;
+  color: var(--r-text-heading);
+}
+
+/* ===========================
+   8. Tier Badges
+   =========================== */
+.prose strong:is(
+  [class*="tier"],
+  :has(+ em:first-of-type)
+) {
+  /* Fallback styling handled by context */
+}
+
+/* Manual tier badge styling via markdown pattern:
+   Writers use **Tier 1**, **Tier 2**, **Tier 3** in bold */
+
+/* ===========================
+   9. Mobile / Desktop ToC
+   =========================== */
+
+/* Desktop: show static nav, hide <details> collapsible */
+.research-toc-inner {
+  display: none;
+}
+
+.research-toc-desktop {
+  display: block;
+}
+
+/* Mobile: show <details> collapsible, hide desktop nav */
+@media (max-width: 1024px) {
+  .research-layout {
+    flex-direction: column;
+    padding: 0 var(--r-space-sm);
+  }
+
+  .research-toc {
+    position: static;
+    width: 100%;
+    max-height: none;
+    overflow: visible;
+    padding-top: calc(var(--r-space-xl) + 60px);
+    padding-bottom: 0;
+  }
+
+  .research-toc-desktop {
+    display: none;
+  }
+
+  .research-toc-inner {
+    display: block;
+    background: var(--r-bg-surface);
+    border: 1px solid var(--r-border-subtle);
+    border-radius: 4px;
+    margin-bottom: var(--r-space-md);
+  }
+
+  .research-toc-toggle {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: var(--r-space-sm);
+    font-family: var(--r-font-mono);
+    font-size: var(--r-text-caption);
+    color: var(--r-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    cursor: pointer;
+    list-style: none;
+  }
+
+  .research-toc-toggle::-webkit-details-marker {
+    display: none;
+  }
+
+  .research-toc-toggle::after {
+    content: '+';
+    font-size: 1.2em;
+    line-height: 1;
+  }
+
+  .research-toc-inner[open] > .research-toc-toggle::after {
+    content: '\2212'; /* minus sign */
+  }
+
+  .research-toc-body {
+    padding: 0 var(--r-space-sm) var(--r-space-sm);
+  }
+
+  /* On mobile, main content doesn't need sidebar offset */
+  .research-main {
+    padding-top: 0;
+  }
+}
+
+/* ===========================
+   10. Responsive Adjustments
+   =========================== */
+@media (max-width: 768px) {
+  .research-main {
+    padding-top: calc(var(--r-space-lg) + 60px);
+  }
+
+  .research-header {
+    margin-bottom: var(--r-space-md);
+    padding-bottom: var(--r-space-sm);
+  }
+
+  .prose h2 {
+    margin-top: var(--r-space-lg);
+  }
+
+  .prose h3 {
+    margin-top: var(--r-space-md);
+  }
+
+  .prose blockquote {
+    margin-left: 0;
+    margin-right: 0;
+    padding: var(--r-space-xs) var(--r-space-sm);
+  }
+
+  .prose th,
+  .prose td {
+    padding: 0.5rem 0.75rem;
+    font-size: var(--r-text-caption);
+  }
+}
+
+@media (max-width: 480px) {
+  .prose th,
+  .prose td {
+    padding: 0.4rem 0.5rem;
+  }
+
+  .prose table {
+    font-size: var(--r-text-caption);
+  }
+}
+
+/* ===========================
+   11. Reduced Motion
+   =========================== */
+@media (prefers-reduced-motion: reduce) {
+  .research {
+    scroll-behavior: auto;
+  }
+
+  .research-toc-toggle::after {
+    transition: none;
+  }
+}
+
+/* ===========================
+   12. Print Styles
+   =========================== */
+@media print {
+  .research {
+    background: white;
+    color: #1a1a1a;
+  }
+
+  .research-toc {
+    display: none;
+  }
+
+  .research-back {
+    display: none;
+  }
+
+  .prose table {
+    border-color: #ccc;
+  }
+
+  .prose th {
+    background: #f5f5f5;
+    color: #1a1a1a;
+    border-bottom-color: #999;
+  }
+
+  .prose td {
+    border-bottom-color: #ddd;
+  }
+
+  .prose blockquote {
+    border-left-color: #999;
+    background: #f9f9f9;
+  }
+}
