@@ -1,0 +1,85 @@
+---
+import BaseLayout from './BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import '../styles/research.css';
+
+interface TocEntry {
+  slug: string;
+  text: string;
+  depth: number;
+}
+
+interface Props {
+  title: string;
+  description: string;
+  destination?: string;
+  backLink?: string;
+  headings?: TocEntry[];
+}
+
+const {
+  title,
+  description,
+  destination,
+  backLink = '/travel/',
+  headings = [],
+} = Astro.props;
+---
+<BaseLayout title={`${title} — gnarlybob`} description={description}>
+  <Fragment slot="head">
+    <link rel="preload" href="/fonts/fraunces-latin-variable.woff2" as="font" type="font/woff2" crossorigin />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:type" content="article" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+  </Fragment>
+  <Header />
+  <div class="research">
+    <div class="research-layout">
+      {headings.length > 0 && (
+        <aside class="research-toc" aria-label="Table of contents">
+          <details class="research-toc-inner">
+            <summary class="research-toc-toggle">Contents</summary>
+            <nav class="research-toc-body">
+              <ol class="research-toc-list">
+                {headings.map((h) => (
+                  <li class={h.depth === 3 ? 'toc-h3' : undefined}>
+                    <a href={`#${h.slug}`}>{h.text}</a>
+                  </li>
+                ))}
+              </ol>
+            </nav>
+          </details>
+          <nav class="research-toc-desktop" aria-label="Table of contents">
+            <span class="research-toc-label">Contents</span>
+            <ol class="research-toc-list">
+              {headings.map((h) => (
+                <li class={h.depth === 3 ? 'toc-h3' : undefined}>
+                  <a href={`#${h.slug}`}>{h.text}</a>
+                </li>
+              ))}
+            </ol>
+          </nav>
+        </aside>
+      )}
+
+      <main class="research-main">
+        <a href={backLink} class="research-back">&larr; Back</a>
+        <header class="research-header">
+          {destination && (
+            <span class="research-destination">{destination}</span>
+          )}
+          <h1 class="research-title">{title}</h1>
+          <p class="research-description">{description}</p>
+        </header>
+        <div class="prose">
+          <slot />
+        </div>
+      </main>
+    </div>
+  </div>
+  <Footer />
+</BaseLayout>
