@@ -17,7 +17,14 @@
       "Bash(npx astro check:*)",
       "Bash(bd list:*)",
       "Bash(bd create:*)",
-      "Bash(bd close:*)"
+      "Bash(bd close:*)",
+      "Bash(bd update:*)",
+      "Bash(kill:*)",
+      "Bash(gh run list:*)",
+      "Bash(bd stats:*)",
+      "Bash(bd ready)",
+      "Bash(bd show:*)",
+      "Bash(git status:*)"
     ]
   }
 }
