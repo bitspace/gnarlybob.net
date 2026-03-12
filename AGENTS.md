@@ -59,35 +59,21 @@ GitHub Actions workflow (`.github/workflows/deploy.yml`) deploys on push to `mai
 Required secrets: `SSH_PRIVATE_KEY`, `VPS_HOST`, `VPS_USER`.
 Server: Debian 12 + Nginx + Certbot.
 
-## Issue Tracking (bd / beads)
-
-Run `bd onboard` to get started.
-
-```bash
-bd ready              # Find available work
-bd show <id>          # View issue details
-bd update <id> --status in_progress  # Claim work
-bd close <id>         # Complete work
-bd sync               # Sync with git
-```
 
 ## Session Completion (Landing the Plane)
 
 **When ending a work session**, you MUST complete ALL steps below. Work is NOT complete until `git push` succeeds.
-
-1. File issues for remaining work
-2. Run quality gates (if code changed) — tests/linters/builds as applicable
-3. Update issue status (close finished, update in-progress)
+1. Run quality gates (if code changed) — tests/linters/builds as applicable
+2. **Push to remote**:
 4. **Push to remote**:
    ```bash
    git pull --rebase
-   bd sync
    git push
    git status  # Must show "up to date with origin"
    ```
-5. Clean up — clear stashes, prune remote branches
-6. Verify — all changes committed and pushed
-7. Hand off — provide context for next session
+3. Clean up — clear stashes, prune remote branches
+4. Verify — all changes committed and pushed
+5. Hand off — provide context for next session
 
 **Critical rules**:
 - Work is NOT complete until `git push` succeeds
